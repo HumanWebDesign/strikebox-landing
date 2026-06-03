@@ -1,5 +1,5 @@
 /* =========================================
-    VARIABLES GLOBALES (Estética Strikebox)
+VARIABLES GLOBALES (Estética Strikebox)
    ========================================= */
 :root {
     --rojo-strike: #C21833; 
@@ -12,15 +12,18 @@
 }
 
 /* =========================================
-    RESETEO Y ESTILOS BASE
+RESETEO Y ESTILOS BASE
    ========================================= */
-body.strikeshop-body {
+html, body.strikeshop-body {
     background-color: var(--fondo-principal);
     color: var(--texto-blanco);
     font-family: var(--fuente-principal);
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /* ESTAS DOS LÍNEAS MATAN EL SCROLL HORIZONTAL */
+    width: 100%; 
+    overflow-x: hidden; 
 }
 
 *, *::before, *::after {
@@ -34,7 +37,7 @@ body.strikeshop-body {
 }
 
 /* =========================================
-    HEADER Y NAVEGACIÓN
+HEADER Y NAVEGACIÓN
    ========================================= */
 .header-tienda {
     background-color: #000000;
@@ -46,17 +49,17 @@ body.strikeshop-body {
 }
 
 /* =========================================
-   MARCA Y LOGO
+MARCA Y LOGO
    ========================================= */
 .marca-tienda {
     display: flex;
     align-items: center;
-    gap: 15px; /* Controla la separación entre el icono y el texto */
+    gap: 15px;
     text-decoration: none;
 }
 
 .logo-img {
-    height: 50px; /* Ajusta la altura según qué tan grande sea tu logo */
+    height: 50px;
     width: auto;
     object-fit: contain;
 }
@@ -93,7 +96,7 @@ body.strikeshop-body {
 }
 
 /* =========================================
-    SECCIÓN HERO (TÍTULO PRINCIPAL)
+SECCIÓN HERO (TÍTULO PRINCIPAL)
    ========================================= */
 .hero-tienda {
     text-align: center;
@@ -118,7 +121,7 @@ body.strikeshop-body {
 }
 
 /* =========================================
-   GRILLA DE PRODUCTOS
+GRILLA DE PRODUCTOS
    ========================================= */
 .seccion-tienda {
     padding: 3rem 20px;
@@ -126,11 +129,10 @@ body.strikeshop-body {
 
 .grilla-strikeshop {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 Columnas forzadas en móvil */
+    grid-template-columns: repeat(2, 1fr);
     gap: 15px;
 }
 
-/* Tablet */
 @media (min-width: 768px) {
     .grilla-strikeshop {
         grid-template-columns: repeat(3, 1fr); 
@@ -138,7 +140,6 @@ body.strikeshop-body {
     }
 }
 
-/* Escritorio */
 @media (min-width: 1024px) {
     .grilla-strikeshop {
         grid-template-columns: repeat(5, 1fr); 
@@ -153,24 +154,8 @@ body.strikeshop-body {
     padding: 2rem;
 }
 
-/* Ajustes menores para que el texto de la tarjeta quepa bien en móvil */
-@media (max-width: 480px) {
-    .producto-card {
-        padding: 1rem;
-    }
-    .producto-card img {
-        height: 180px; /* Evita que la foto sea gigante */
-    }
-    .producto-card h3 {
-        font-size: 1rem;
-    }
-    .producto-card .precio {
-        font-size: 1.2rem;
-    }
-}
-
 /* =========================================
-   TARJETAS DE PRODUCTO
+TARJETAS DE PRODUCTO
    ========================================= */
 .producto-card {
     background-color: var(--fondo-secundario);
@@ -188,12 +173,12 @@ body.strikeshop-body {
 .producto-card:hover {
     transform: translateY(-5px);
     border-color: var(--rojo-strike);
-    box-shadow: 0 8px 20px rgba(229, 9, 20, 0.15); /* Resplandor rojo sutil */
+    box-shadow: 0 8px 20px rgba(229, 9, 20, 0.15);
 }
 
 .producto-card img {
     width: 100%;
-    aspect-ratio: 1 / 1; /* ¡Esto es la magia! Fuerza un cuadrado perfecto */
+    aspect-ratio: 1 / 1;
     object-fit: cover; 
     border-radius: 4px;
     background-color: #2a2a2a; 
@@ -205,6 +190,9 @@ body.strikeshop-body {
     color: var(--texto-blanco);
     margin: 0 0 10px 0;
     font-weight: 600;
+    /* Obliga a las palabras gigantes a saltar a la línea de abajo */
+    word-break: break-word; 
+    hyphens: auto;
 }
 
 .producto-card .precio {
@@ -215,7 +203,7 @@ body.strikeshop-body {
 }
 
 /* =========================================
-   MODAL DE COMPRA (ESTILOS BÁSICOS)
+MODAL DE COMPRA
    ========================================= */
 .modal-oculto {
     display: none !important;
@@ -227,7 +215,7 @@ body.strikeshop-body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.85); /* Fondo oscuro semitransparente */
+    background-color: rgba(0, 0, 0, 0.85);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -314,7 +302,7 @@ body.strikeshop-body {
 }
 
 .precio-destacado {
-    color: var(--rojo-strike) !important; /* Importante para sobreescribir */
+    color: var(--rojo-strike) !important;
     font-size: 2rem !important;
     font-weight: 800;
     margin: 0 !important;
@@ -322,7 +310,7 @@ body.strikeshop-body {
 
 .btn-whatsapp {
     width: 100%;
-    background-color: #25D366; /* Verde oficial de WhatsApp */
+    background-color: #25D366;
     color: white;
     border: none;
     padding: 15px;
@@ -341,16 +329,14 @@ body.strikeshop-body {
     background-color: #128C7E;
 }
 
-/* Responsive para el Modal */
 @media (max-width: 768px) {
     .modal-grid {
         grid-template-columns: 1fr;
     }
 }
 
-
 /* =========================================
-   FILTROS DE PRODUCTOS
+FILTROS DE PRODUCTOS
    ========================================= */
 .contenedor-filtros {
     margin-bottom: 2rem;
@@ -358,7 +344,6 @@ body.strikeshop-body {
     justify-content: center;
 }
 
-/* Estilo para el select móvil */
 .filtro-select {
     width: 100%;
     max-width: 400px;
@@ -373,7 +358,6 @@ body.strikeshop-body {
     outline: none;
 }
 
-/* Contenedor de botones Escritorio (oculto en móvil por defecto) */
 .filtro-botones {
     display: none; 
     gap: 10px;
@@ -403,7 +387,6 @@ body.strikeshop-body {
     border-color: var(--rojo-strike);
 }
 
-/* Media Query para Escritorio/Tablet: Mostrar botones, ocultar select */
 @media (min-width: 768px) {
     .filtro-select {
         display: none;
@@ -414,7 +397,7 @@ body.strikeshop-body {
 }
 
 /* =========================================
-   INFORMACIÓN DE COMPRA (TÉRMINOS)
+INFORMACIÓN DE COMPRA (TÉRMINOS)
    ========================================= */
 .info-compra {
     margin-top: 4rem;
@@ -461,12 +444,12 @@ body.strikeshop-body {
 
 @media (min-width: 768px) {
     .info-grid {
-        grid-template-columns: repeat(3, 1fr); /* 3 columnas en escritorio */
+        grid-template-columns: repeat(3, 1fr); 
     }
 }
 
 /* =========================================
-   FOOTER STRIKEBOX
+FOOTER STRIKEBOX
    ========================================= */
 .footer-strikebox {
     background-color: #000000;
@@ -512,12 +495,12 @@ body.strikeshop-body {
 
 @media (min-width: 768px) {
     .footer-grid {
-        grid-template-columns: repeat(4, 1fr); /* 4 columnas en escritorio */
+        grid-template-columns: repeat(4, 1fr); 
     }
 }
 
 /* =========================================
-   ENLACES SOCIALES DEL FOOTER
+ENLACES SOCIALES DEL FOOTER
    ========================================= */
 .footer-enlaces {
     display: flex;
@@ -533,19 +516,96 @@ body.strikeshop-body {
     text-decoration: none;
     font-size: 1rem;
     transition: all 0.3s ease;
-    width: fit-content; /* Evita que el botón ocupe toda la línea */
+    width: fit-content; 
 }
 
-/* Animación de desplazamiento al pasar el mouse */
 .enlace-contacto:hover {
     transform: translateX(5px); 
 }
 
-/* Colores originales de cada marca al hacer hover */
 .whatsapp-hover:hover {
     color: #25D366; 
 }
 
 .instagram-hover:hover {
     color: #E1306C; 
+}
+
+/* =========================================
+AJUSTES PARA MÓVILES (Adaptación Final)
+   ========================================= */
+@media (max-width: 768px) {
+    /* Liberar espacio a los lados en celulares */
+    .contenedor {
+        padding: 0 10px; 
+    }
+    
+    /* Darle respiro al botón del header para que no se pegue a la línea roja */
+    .nav-tienda {
+        padding-bottom: 15px; 
+    }
+
+    /* Header: Evitar que el logo y el botón se aplasten */
+    .nav-tienda {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+        padding-top: 10px;
+    }
+    .marca-tienda {
+        justify-content: center;
+    }
+
+    /* Hero: Ajustar el título principal */
+    .hero-text h2 {
+        font-size: 1.8rem;
+    }
+    .hero-text p {
+        font-size: 1rem;
+        padding: 0 10px;
+    }
+
+    /* Tarjetas de Producto: Mejorar la legibilidad y espacios */
+    .producto-card {
+        padding: 10px;
+    }
+    .producto-card img {
+        height: auto; 
+    }
+    .producto-card h3 {
+        font-size: 1rem;
+        margin-bottom: 5px;
+    }
+    .producto-card .precio {
+        font-size: 1.2rem;
+    }
+
+    /* Políticas de la Tienda */
+    .info-item {
+        padding: 1.5rem 1rem;
+    }
+    .info-item h3 {
+        font-size: 1.2rem;
+    }
+    .info-item p {
+        font-size: 0.95rem;
+    }
+
+    /* Footer: Agrandar textos y darles respiro centrado */
+    .footer-strikebox {
+        padding: 3rem 20px 0 20px;
+    }
+    .footer-grid {
+        gap: 2rem;
+        text-align: center;
+    }
+    .footer-col h4 {
+        font-size: 1.1rem;
+    }
+    .footer-col p {
+        font-size: 0.95rem;
+    }
+    .footer-enlaces {
+        align-items: center;
+    }
 }
