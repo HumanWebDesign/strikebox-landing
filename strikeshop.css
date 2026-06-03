@@ -1,0 +1,551 @@
+/* =========================================
+    VARIABLES GLOBALES (Estética Strikebox)
+   ========================================= */
+:root {
+    --rojo-strike: #C21833; 
+    --fondo-principal: #121212; 
+    --fondo-secundario: #1e1e1e; 
+    --borde-tarjeta: #2c2c2c;
+    --texto-blanco: #f5f5f5;
+    --texto-gris: #a0a0a0;
+    --fuente-principal: 'Montserrat', 'Roboto', sans-serif; 
+}
+
+/* =========================================
+    RESETEO Y ESTILOS BASE
+   ========================================= */
+body.strikeshop-body {
+    background-color: var(--fondo-principal);
+    color: var(--texto-blanco);
+    font-family: var(--fuente-principal);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+.contenedor {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* =========================================
+    HEADER Y NAVEGACIÓN
+   ========================================= */
+.header-tienda {
+    background-color: #000000;
+    border-bottom: 2px solid var(--rojo-strike);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* =========================================
+   MARCA Y LOGO
+   ========================================= */
+.marca-tienda {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Controla la separación entre el icono y el texto */
+    text-decoration: none;
+}
+
+.logo-img {
+    height: 50px; /* Ajusta la altura según qué tan grande sea tu logo */
+    width: auto;
+    object-fit: contain;
+}
+
+.nav-tienda {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-volver {
+    color: var(--texto-gris);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.btn-volver:hover {
+    color: var(--texto-blanco);
+}
+
+.logo-text {
+    font-size: 1.8rem;
+    font-weight: 900;
+    margin: 0;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: left;
+}
+
+.logo-text span {
+    color: var(--rojo-strike);
+}
+
+/* =========================================
+    SECCIÓN HERO (TÍTULO PRINCIPAL)
+   ========================================= */
+.hero-tienda {
+    text-align: center;
+    padding: 3rem 20px;
+    border-bottom: 1px solid var(--borde-tarjeta);
+}
+
+.hero-text h2 {
+    color: var(--rojo-strike);
+    font-size: 2.5rem;
+    margin: 0 0 10px 0;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.hero-text p {
+    color: var(--texto-gris);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* =========================================
+   GRILLA DE PRODUCTOS
+   ========================================= */
+.seccion-tienda {
+    padding: 3rem 20px;
+}
+
+.grilla-strikeshop {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 Columnas forzadas en móvil */
+    gap: 15px;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+    .grilla-strikeshop {
+        grid-template-columns: repeat(3, 1fr); 
+        gap: 20px;
+    }
+}
+
+/* Escritorio */
+@media (min-width: 1024px) {
+    .grilla-strikeshop {
+        grid-template-columns: repeat(5, 1fr); 
+    }
+}
+
+.mensaje-carga {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: var(--texto-gris);
+    font-size: 1.2rem;
+    padding: 2rem;
+}
+
+/* Ajustes menores para que el texto de la tarjeta quepa bien en móvil */
+@media (max-width: 480px) {
+    .producto-card {
+        padding: 1rem;
+    }
+    .producto-card img {
+        height: 180px; /* Evita que la foto sea gigante */
+    }
+    .producto-card h3 {
+        font-size: 1rem;
+    }
+    .producto-card .precio {
+        font-size: 1.2rem;
+    }
+}
+
+/* =========================================
+   TARJETAS DE PRODUCTO
+   ========================================= */
+.producto-card {
+    background-color: var(--fondo-secundario);
+    border: 1px solid var(--borde-tarjeta);
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.producto-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--rojo-strike);
+    box-shadow: 0 8px 20px rgba(229, 9, 20, 0.15); /* Resplandor rojo sutil */
+}
+
+.producto-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* ¡Esto es la magia! Fuerza un cuadrado perfecto */
+    object-fit: cover; 
+    border-radius: 4px;
+    background-color: #2a2a2a; 
+    margin-bottom: 1rem;
+}
+
+.producto-card h3 {
+    font-size: 1.2rem;
+    color: var(--texto-blanco);
+    margin: 0 0 10px 0;
+    font-weight: 600;
+}
+
+.producto-card .precio {
+    color: var(--rojo-strike);
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin: 0;
+}
+
+/* =========================================
+   MODAL DE COMPRA (ESTILOS BÁSICOS)
+   ========================================= */
+.modal-oculto {
+    display: none !important;
+}
+
+#modal-producto {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* Fondo oscuro semitransparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.modal-contenido {
+    background-color: var(--fondo-secundario);
+    border: 1px solid var(--borde-tarjeta);
+    border-radius: 12px;
+    max-width: 800px;
+    width: 100%;
+    position: relative;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.btn-cerrar-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: var(--texto-gris);
+    font-size: 2rem;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.btn-cerrar-modal:hover {
+    color: var(--rojo-strike);
+}
+
+.modal-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+.modal-imagen-contenedor img {
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.etiqueta-oficial {
+    background-color: var(--rojo-strike);
+    color: white;
+    padding: 4px 10px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: 4px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.modal-info h2 {
+    font-size: 2rem;
+    margin: 0 0 1rem 0;
+}
+
+.modal-info p {
+    color: var(--texto-gris);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.modal-precio-caja {
+    background-color: var(--fondo-principal);
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid #333;
+    margin-bottom: 1.5rem;
+}
+
+.precio-label {
+    display: block;
+    color: var(--texto-gris);
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.precio-destacado {
+    color: var(--rojo-strike) !important; /* Importante para sobreescribir */
+    font-size: 2rem !important;
+    font-weight: 800;
+    margin: 0 !important;
+}
+
+.btn-whatsapp {
+    width: 100%;
+    background-color: #25D366; /* Verde oficial de WhatsApp */
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transition: background-color 0.3s;
+}
+
+.btn-whatsapp:hover {
+    background-color: #128C7E;
+}
+
+/* Responsive para el Modal */
+@media (max-width: 768px) {
+    .modal-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =========================================
+   FILTROS DE PRODUCTOS
+   ========================================= */
+.contenedor-filtros {
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+/* Estilo para el select móvil */
+.filtro-select {
+    width: 100%;
+    max-width: 400px;
+    padding: 12px 15px;
+    background-color: var(--fondo-secundario);
+    color: var(--texto-blanco);
+    border: 1px solid var(--rojo-strike);
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+    cursor: pointer;
+    outline: none;
+}
+
+/* Contenedor de botones Escritorio (oculto en móvil por defecto) */
+.filtro-botones {
+    display: none; 
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.btn-filtro {
+    background-color: var(--fondo-secundario);
+    color: var(--texto-gris);
+    border: 1px solid var(--borde-tarjeta);
+    padding: 10px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-filtro:hover {
+    border-color: var(--rojo-strike);
+    color: var(--texto-blanco);
+}
+
+.btn-filtro.activo {
+    background-color: var(--rojo-strike);
+    color: white;
+    border-color: var(--rojo-strike);
+}
+
+/* Media Query para Escritorio/Tablet: Mostrar botones, ocultar select */
+@media (min-width: 768px) {
+    .filtro-select {
+        display: none;
+    }
+    .filtro-botones {
+        display: flex;
+    }
+}
+
+/* =========================================
+   INFORMACIÓN DE COMPRA (TÉRMINOS)
+   ========================================= */
+.info-compra {
+    margin-top: 4rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--borde-tarjeta);
+    margin-bottom: 4rem;
+}
+
+.titulo-seccion {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: var(--texto-blanco);
+    text-transform: uppercase;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.info-item {
+    background-color: var(--fondo-secundario);
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid var(--borde-tarjeta);
+    text-align: center;
+}
+
+.info-item h3 {
+    color: var(--rojo-strike);
+    font-size: 1.3rem;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.info-item p {
+    color: var(--texto-gris);
+    line-height: 1.6;
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+@media (min-width: 768px) {
+    .info-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 columnas en escritorio */
+    }
+}
+
+/* =========================================
+   FOOTER STRIKEBOX
+   ========================================= */
+.footer-strikebox {
+    background-color: #000000;
+    border-top: 3px solid var(--rojo-strike);
+    padding: 4rem 0 0 0;
+    color: var(--texto-blanco);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.footer-col h4 {
+    color: var(--rojo-strike);
+    font-size: 1.2rem;
+    margin-top: 0;
+    margin-bottom: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-col p {
+    color: var(--texto-gris);
+    margin: 0 0 0.8rem 0;
+    line-height: 1.5;
+}
+
+.footer-bottom {
+    background-color: #0a0a0a;
+    text-align: center;
+    padding: 1.5rem 20px;
+    border-top: 1px solid #1a1a1a;
+}
+
+.footer-bottom p {
+    color: var(--texto-gris);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+@media (min-width: 768px) {
+    .footer-grid {
+        grid-template-columns: repeat(4, 1fr); /* 4 columnas en escritorio */
+    }
+}
+
+/* =========================================
+   ENLACES SOCIALES DEL FOOTER
+   ========================================= */
+.footer-enlaces {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.enlace-contacto {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--texto-gris);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    width: fit-content; /* Evita que el botón ocupe toda la línea */
+}
+
+/* Animación de desplazamiento al pasar el mouse */
+.enlace-contacto:hover {
+    transform: translateX(5px); 
+}
+
+/* Colores originales de cada marca al hacer hover */
+.whatsapp-hover:hover {
+    color: #25D366; 
+}
+
+.instagram-hover:hover {
+    color: #E1306C; 
+}

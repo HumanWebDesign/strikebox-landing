@@ -1,0 +1,336 @@
+/* Variables y Reseteo */
+:root {
+    --rojo-strike: #C21833;
+    --fondo-principal: #0d0d0d;
+    --fondo-secundario: #1a1a1a;
+    --texto-blanco: #ffffff;
+    --texto-gris: #aaaaaa;
+}
+
+body.lf-body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--fondo-principal);
+    color: var(--texto-blanco);
+    scroll-behavior: smooth;
+}
+
+.contenedor { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+.text-center { text-align: center; }
+
+/* Header */
+.lf-header {
+    background-color: rgba(0, 0, 0, 0.9);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #333;
+    backdrop-filter: blur(5px);
+}
+
+.nav-lf {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.logo-text { font-size: 1.5rem; margin: 0; font-weight: 900; }
+.logo-text span { color: var(--rojo-strike); }
+
+.enlaces-lf {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.enlaces-lf a {
+    color: var(--texto-blanco);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.enlaces-lf a:hover { color: var(--rojo-strike); }
+
+.btn-volver {
+    border: 1px solid #555;
+    padding: 5px 15px;
+    border-radius: 4px;
+}
+
+/* Hero Section */
+.hero-lf {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: url('assets/img/fondolf.webp') center/cover no-repeat;
+    margin-top: 70px; /* Compensa el header fijo */
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(13,13,13,1));
+    z-index: 1;
+}
+
+.hero-contenido {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+.badge-lf {
+    background-color: var(--rojo-strike);
+    color: white;
+    padding: 5px 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.hero-lf h2 {
+    font-size: 4rem;
+    margin: 0 0 20px 0;
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+
+.hero-lf p {
+    font-size: 1.2rem;
+    color: var(--texto-gris);
+    margin-bottom: 40px;
+}
+
+/* Contador */
+.contador-lf {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.tiempo-caja {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 15px;
+    border-radius: 8px;
+    min-width: 80px;
+}
+
+.tiempo-numero { display: block; font-size: 2rem; font-weight: bold; }
+.tiempo-texto { display: block; font-size: 0.8rem; text-transform: uppercase; color: var(--rojo-strike); }
+
+/* Botones Hero */
+.hero-botones { display: flex; gap: 15px; justify-content: center; }
+
+.btn-lf-primario, .btn-lf-secundario, .btn-lf-ticket, .btn-lf-inscripcion {
+    padding: 15px 30px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 4px;
+    text-transform: uppercase;
+    transition: all 0.3s;
+}
+
+.btn-lf-primario {
+    background-color: var(--rojo-strike);
+    color: white;
+}
+
+.btn-lf-primario:hover { background-color: #a01328; }
+
+.btn-lf-secundario {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.btn-lf-secundario:hover { background-color: white; color: black; }
+
+/* Secciones Generales */
+.seccion-lf { padding: 5rem 0; }
+.bg-oscuro { background-color: var(--fondo-principal); }
+.bg-rojo { background-color: var(--rojo-strike); color: white; }
+
+.titulo-centrado {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+}
+
+/* Entradas Grid */
+.grid-entradas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.texto-entradas h3 { font-size: 2.5rem; margin-top: 0; }
+.texto-entradas p { color: var(--texto-gris); font-size: 1.1rem; line-height: 1.6; margin-bottom: 30px; }
+.btn-lf-ticket { background-color: white; color: black; display: inline-block; }
+
+.imagen-entradas img { width: 100%; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+
+/* Inscripciones */
+.btn-lf-inscripcion {
+    background-color: #000;
+    color: white;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+/* =========================================
+   GRILLA HISTORIA (Afiches uniformes)
+   ========================================= */
+.grilla-historia {
+    display: grid;
+    /* Mantiene 3 columnas iguales y se adapta en móviles */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.tarjeta-legado {
+    position: relative;
+    display: block;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #333;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    background-color: var(--fondo-secundario);
+}
+
+.tarjeta-legado:hover {
+    transform: translateY(-5px);
+    border-color: var(--rojo-strike);
+}
+
+.tarjeta-legado img {
+    width: 100%;
+    /* Formato vertical estándar de Instagram (4:5). Todas medirán lo mismo */
+    aspect-ratio: 4 / 5; 
+    object-fit: cover; /* Evita que la foto se estire o achate */
+    display: block;
+}
+
+/* Efecto al pasar el mouse por encima (Hover) */
+.overlay-legado {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(194, 24, 51, 0.85); /* Tu rojo con opacidad */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.tarjeta-legado:hover .overlay-legado {
+    opacity: 1;
+}
+
+.overlay-legado span {
+    color: #ffffff;
+    font-weight: 900;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Pequeño efecto de elevación al pasar el mouse por el post */
+.tarjeta-instagram:hover { 
+    transform: translateY(-5px); 
+}
+
+/* Footer */
+.footer-lf { text-align: center; padding: 20px; background-color: #000; color: #555; border-top: 1px solid #222; }
+
+
+/* Alineación de la marca (Logo + Texto) */
+.marca-lf {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Controla la separación entre el logo y la palabra LEGEND */
+    text-decoration: none;
+}
+
+/* Tamaño del logo */
+.logo-img-lf {
+    height: 45px; /* Sube o baja este número si el logo se ve muy chico o muy grande */
+    width: auto;
+    object-fit: contain;
+}
+
+/* =========================================
+   AJUSTES PARA MÓVILES (Smartphones y Tablets)
+   ========================================= */
+@media (max-width: 768px) {
+    /* 1. Ocultar enlaces de navegación superior (mantiene solo el logo) */
+    .enlaces-lf { 
+        display: none; 
+    }
+    
+    /* 2. Ajustes del Hero (Portada) */
+    .hero-lf h2 { 
+        font-size: 2.2rem; /* Achicamos un poco el título para que no se desborde */
+    }
+    .hero-botones { 
+        flex-direction: column; 
+        align-items: center;
+        width: 100%;
+    }
+    .btn-lf-primario, .btn-lf-secundario {
+        width: 100%; /* Botones ocupan todo el ancho disponible */
+        max-width: 300px;
+    }
+
+    /* 3. Centrar sección de Entradas */
+    .grid-entradas { 
+        grid-template-columns: 1fr; 
+        gap: 2rem; 
+        text-align: center; /* Obliga al texto a centrarse */
+    }
+    .imagen-entradas {
+        display: flex;
+        justify-content: center;
+    }
+
+    /* 4. Centrar sección del Legado (Afiches) */
+    .grilla-historia {
+        grid-template-columns: 1fr; /* Fuerza 1 sola columna en móviles */
+        max-width: 350px; /* Evita que los afiches se vean gigantes en tablets */
+        margin: 0 auto; /* Centra la grilla completa en la pantalla */
+    }
+
+    /* 5. Ajustes del Contador para que quepa en la pantalla */
+    .contador-lf {
+        gap: 8px; /* Reducimos la separación entre cuadros */
+    }
+    
+    .tiempo-caja {
+        min-width: 65px; /* Hacemos los cuadros más delgados */
+        padding: 10px 5px; /* Menos relleno interior */
+    }
+    
+    .tiempo-numero {
+        font-size: 1.5rem; /* Achicamos un poco los números */
+    }
+    
+    .tiempo-texto {
+        font-size: 0.7rem; /* Achicamos un poco el texto de "DÍAS", "HORAS" */
+    }
+}

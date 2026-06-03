@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Legend Factory | Torneo Oficial Strikebox</title>
+        <link rel="stylesheet" href="legendfactory.css">
+        <link rel="icon" type="image/x-icon" href="assets/img/faviconlf.ico">
+    </head>
+    <body class="lf-body">
+
+        <!-- Header / Navegación -->
+        <header class="lf-header">
+            <div class="contenedor nav-lf">
+                <div class="marca-lf">
+                    <img src="assets/img/logolf.webp" alt="Logo Legend Factory" class="logo-img-lf">
+                    <h1 class="logo-text">LEGEND<span>FACTORY</span></h1>
+                </div>
+                <nav class="enlaces-lf">
+                    <a href="#inscripciones">Competidores</a>
+                    <a href="#entradas">Entradas</a>
+                    <a href="#historia">Ediciones Anteriores</a>
+                    <a href="Strikeshop.html">Ir a Strikeshop</a>
+                    <a href="index.html" class="btn-volver">Ir a Strikebox</a>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Hero Section (Portada del Evento) -->
+        <section class="hero-lf">
+            <div class="hero-overlay"></div>
+            <div class="contenedor hero-contenido">
+                <span class="badge-lf">MMA, Kickboxing, Boxeo y Jiu-Jitsu</span>
+                <h2>FORJANDO LEYENDAS<br>EN EL TATAMI</h2>
+                <p>El torneo de artes marciales más intenso de Concepción. Demuestra tu técnica, fuerza y corazón en la jaula de Strikebox.</p>
+                
+                <!-- Contador Regresivo -->
+                <div id="contador" class="contador-lf">
+                    <!-- Se inyecta con JS -->
+                </div>
+
+                <div class="hero-botones">
+                    <a href="#inscripciones" class="btn-lf-primario">Inscripción de Atletas</a>
+                    <a href="#entradas" class="btn-lf-secundario">Compra de Entradas</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Entradas (Público) -->
+        <section id="entradas" class="seccion-lf bg-oscuro">
+            <div class="contenedor grid-entradas">
+                <div class="texto-entradas">
+                    <h3>Asegura tu lugar en la gradería</h3>
+                    <p>Vive la adrenalina de Legend Factory en primera fila. Los cupos son limitados y se agotan rápido. Apoya a tus compañeros y disfruta de combates de primer nivel.</p>
+                    <a href="https://www.ecopass.cl/events/legend-factory--v/18246?" class="btn-lf-ticket" target="_blank">🎟️ No te quedes sin tu entrada ¡Cómprala aquí!</a>
+                </div>
+                <div class="imagen-entradas">
+                    <img src="assets/img/tickets.png" alt="Público Legend Factory">
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Inscripción (Peleadores) -->
+        <section id="inscripciones" class="seccion-lf bg-rojo">
+            <div class="contenedor text-center">
+                <h3>¿Tienes lo necesario para subir al ring?</h3>
+                <p>Las inscripciones para la próxima edición están abiertas. Selecciona tu categoría, peso y disciplina.</p>
+                <!-- Link del profe -->
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScHyOZWGxJFUB5pJz6sp2We3ivRJnUf3kZcYeWUp61VcrY-Jw/viewform" target="_blank" class="btn-lf-inscripcion">Formulario de Inscripción</a>
+            </div>
+        </section>
+
+        <!-- Historia / Ediciones Anteriores -->
+        <section id="historia" class="seccion-lf bg-oscuro">
+            <div class="contenedor">
+                <h2 class="titulo-centrado">El Legado de LF</h2>
+                
+                <div class="grilla-historia">
+                    <!-- Afiche 1 -->
+                    <a href="https://www.instagram.com/p/DVrKTcbj1bV/?utm_source=ig_embed&amp;utm_campaign=loading" target="_blank" class="tarjeta-legado">
+                        <img src="assets/img/lf4.png" alt="LF IV">
+                        <div class="overlay-legado">
+                            <span>Legend Factory IV<br>Ver en Instagram</span>
+                        </div>
+                    </a>
+
+                    <!-- Afiche 2 -->
+                    <a href="https://www.instagram.com/reel/DOCeGyOlWQK/?utm_source=ig_embed&amp;utm_campaign=loading" target="_blank" class="tarjeta-legado">
+                        <img src="assets/img/lf3.png" alt="LF III">
+                        <div class="overlay-legado">
+                            <span>Legend Factory III <br>Ver en Instagram</span>
+                        </div>
+                    </a>
+
+                    <!-- Afiche 3 -->
+                    <a href="https://www.instagram.com/p/DKnPGRJvAtd/?utm_source=ig_embed&amp;utm_campaign=loading" target="_blank" class="tarjeta-legado">
+                        <img src="assets/img/lf2.png" alt="LF II">
+                        <div class="overlay-legado">
+                            <span>Legend Factory II <br>Ver en Instagram</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Simple -->
+        <footer class="footer-lf">
+            <p>&copy; 2026 Legend Factory by Strikebox Concepción. Todos los derechos reservados. | Powered by Human Web Design.</p>
+        </footer>
+
+        <script async src="//www.instagram.com/embed.js"></script>
+        <script src="legendfactory.js"></script>
+    </body>
+</html>

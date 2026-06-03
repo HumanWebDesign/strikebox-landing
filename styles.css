@@ -128,8 +128,16 @@ body {
     border-radius: 2px;
 }
 
+.header-principal .contenedor {
+    display: flex;
+    justify-content: space-between; /* Esto empuja el logo a la izq y el menú a la der */
+    align-items: center;
+}
+
+
+
 /* ========================
-   BOTONES GENERALES
+BOTONES GENERALES
 ======================== */
 .btn-primary, .btn-large {
     background-color: var(--primary-orange);
