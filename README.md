@@ -23,14 +23,23 @@ Este proyecto fue construido bajo la filosofía **Vanilla Web Development**, pri
 ## 📁 Estructura del Proyecto
 
 ```text
-strikebox-landing/
-├── assets/             # Imágenes, logos y favicon
+strikebox-website/
+├── assets/img/         # Imágenes, logos y favicon
+├── assets/img/tienda   # Productos de la tienda
 ├── index.html          # Estructura principal
-├── styles.css          # Estilos y variables de branding
+├── strikeshop.html     # Estructura de la tienda de Strikebox
+├── legendfactory.html  # Estructura del Torneo Legend Factory
+├── styles.css          # Estilos y variables de la web principal
+├── strikeshop.css      # Estilos y variables de la tienda
+├── legendfactory.css   # Estilos y variables de la web del torneo
 ├── script.js           # Lógica de horarios y slider
+├── strikeshop.js       # Lógica de los productos, modales y botones
+├── legendfactory.js    # Lógica de la cuenta regresiva y botones
 └── README.md           # Documentación
 ```
 
 ## 👨‍💻 Autor
 
-Juan Villa Crisosto Desarrollador Full Stack y Estudiante de Ingeniería en Conectividad y Redes Concepción, Chile.
+Juan Villa Crisosto Desarrollador Full Stack, Concepción, Chile.
+
+Powered By Agency Human Web Design.
