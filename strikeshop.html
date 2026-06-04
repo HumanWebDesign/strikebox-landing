@@ -55,6 +55,7 @@
                     <button class="btn-filtro" onclick="filtrarProductos('Polerones', this)">Polerones</button>
                     <button class="btn-filtro" onclick="filtrarProductos('Shorts', this)">Shorts</button>
                     <button class="btn-filtro" onclick="filtrarProductos('Pantalones', this)">Pantalones</button>
+                    <button class="btn-filtro" onclick="filtrarProductos('Conjuntos', this)">Conjuntos</button>
                     <button class="btn-filtro" onclick="filtrarProductos('Accesorios', this)">Accesorios</button>
                 </div>
             </div>
@@ -129,8 +130,12 @@
                 
                 <div class="modal-grid">
                     <!-- Columna Izquierda: Imagen -->
-                    <div class="modal-imagen-contenedor">
+                    <div class="modal-imagen-contenedor carrusel-contenedor">
+                        <button id="btn-prev" class="btn-carrusel prev oculto" onclick="cambiarImagen(-1)">&#10094;</button>
+                        
                         <img id="modal-img" src="" alt="Producto">
+                        
+                        <button id="btn-next" class="btn-carrusel next oculto" onclick="cambiarImagen(1)">&#10095;</button>
                     </div>
                     
                     <!-- Columna Derecha: Información -->

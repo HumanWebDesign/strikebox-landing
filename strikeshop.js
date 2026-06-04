@@ -2,79 +2,88 @@
 const inventarioStrikeshop = [
     {
         id: 1,
-        name: "Guantes Boxeo/Kickboxing",
+        name: "Guantes Javco Blanco/Dorado",
         price: 35000,
         brand: "Javco",
-        image_url: "assets/img/guantes1.png",
+        image_url: "assets/img/tienda/guantes1.png",
+        galeria: ["assets/img/tienda/guantes1.png"],
         description: "Guantes de Boxeo/Kickboxing marca Javco, ideales para sparring y trabajo en saco.",
         category: "Guantes"
     },
     {
         id: 2,
-        name: "Guantes Boxeo/Kickboxing",
+        name: "Guantes Javco Azul/Negro",
         price: 35000,
         brand: "Javco",
-        image_url: "assets/img/guantes2.png",
+        image_url: "assets/img/tienda/guantes2.png",
+        galeria: ["assets/img/tienda/guantes2.png"],
         description: "Guantes de Boxeo/Kickboxing marca Javco, ideales para sparring y trabajo en saco.",
         category: "Guantes"
     },
     {
         id: 3,
-        name: "Guantes Boxeo/Kickboxing",
+        name: "Guantes Javco Azul/Blanco",
         price: 35000,
         brand: "Javco",
-        image_url: "assets/img/guantes3.png",
+        image_url: "assets/img/tienda/guantes3.png",
+        galeria: ["assets/img/tienda/guantes3.png"],
         description: "Guantes de Boxeo/Kickboxing marca Javco, ideales para sparring y trabajo en saco.",
         category: "Guantes"
     },
     {
         id: 4,
-        name: "Guantes Boxeo/Kickboxing",
+        name: "Guantes Javco Rojo/Blanco",
         price: 35000,
         brand: "Javco",
-        image_url: "assets/img/guantes4.png",
+        image_url: "assets/img/tienda/guantes4.png",
+        galeria: ["assets/img/tienda/guantes4.png"],
         description: "Guantes de Boxeo/Kickboxing marca Javco, ideales para sparring y trabajo en saco.",
         category: "Guantes"
     },
     {
         id: 5,
-        name: "Guantes Boxeo/Kickboxing",
+        name: "Guantes Javco Negro/Blanco",
         price: 35000,
         brand: "Javco",
-        image_url: "assets/img/guantes5.png",
+        image_url: "assets/img/tienda/guantes5.png",
+        galeria: ["assets/img/tienda/guantes5.png"],
         description: "Guantes de Boxeo/Kickboxing marca Javco, ideales para sparring y trabajo en saco.",
         category: "Guantes"
     },
     {
         id: 6,
-        name: "Guantes Boxeo/Kickboxing",
+        name: "Guantes Javco Negro/Dorado",
         price: 35000,
         brand: "Javco",
-        image_url: "assets/img/guantes6.png",
+        image_url: "assets/img/tienda/guantes6.png",
+        galeria: ["assets/img/tienda/guantes6.png"],
         description: "Guantes de Boxeo/Kickboxing marca Javco, ideales para sparring y trabajo en saco.",
         category: "Guantes"
     },
     {
         id: 7,
-        name: "Espinilleras / Canilleras",
+        name: "Espinilleras/Canilleras Javco Negro/Dorado",
         price: 42000,
-        image_url: "assets/img/espinilleras1.png",
+        image_url: "assets/img/tienda/espinilleras1.png",
+        galeria: ["assets/img/tienda/espinilleras1.png"],
         description: "Protección de alto impacto para sparring duro.",
         category: "Espinilleras"
     },
     {
         id: 8,
-        name: "Espinilleras / Canilleras",
+        name: "Espinilleras / Canilleras Javco Blanco/Rosado",
         price: 42000,
-        image_url: "assets/img/espinilleras2.png",
+        image_url: "assets/img/tienda/espinilleras2.png",
+        galeria: ["assets/img/tienda/espinilleras2.png"],
         description: "Protección de alto impacto para sparring duro.",
         category: "Espinilleras"
     },
     {
         id: 9,
-        name: "Espinilleras / Canilleras",
+        name: "Espinilleras / Canilleras Javco Blanco/Dorado",
         price: 42000,
-        image_url: "assets/img/espinilleras3.png",
+        image_url: "assets/img/tienda/espinilleras3.png",
+        galeria: ["assets/img/tienda/espinilleras3.png"],
         description: "Protección de alto impacto para sparring duro.",
         category: "Espinilleras"
     },
@@ -82,9 +91,55 @@ const inventarioStrikeshop = [
         id: 10,
         name: "Vendas rápidas",
         price: 12000,
-        image_url: "assets/img/vendarapida1.png",
+        image_url: "assets/img/tienda/vendarapida1.png",
+        galeria: ["assets/img/tienda/vendarapida1.png"],
         description: "Vendaje de alta calidad para proteger tus manos durante el entrenamiento.",
         category: "Accesorios"
+    },
+    {
+        id: 11,
+        name: "Polera Disciplinas Strikebox",
+        price: 15000,
+        image_url: "assets/img/tienda/polera1adelante.jpeg",
+        galeria: ["assets/img/tienda/polera1adelante.jpeg","assets/img/tienda/polera1atras.jpeg"],
+        description: "Polera oficial de Strikebox, perfecta para entrenar o lucir tu pasión por las artes marciales.",
+        category: "Poleras"
+    },
+    {
+        id: 12,
+        name: "Polera Strikebox Logo",
+        price: 15000,
+        image_url: "assets/img/tienda/polera2adelante.jpeg",
+        galeria: ["assets/img/tienda/polera2adelante.jpeg","assets/img/tienda/polera2atras.jpeg"],
+        description: "Polera oficial de Strikebox, perfecta para entrenar o lucir tu pasión por las artes marciales.",
+        category: "Poleras"
+    },
+    {
+        id: 13,
+        name: "Conjunto Buzo Strikebox Gris",
+        price: 45000,
+        image_url: "assets/img/tienda/buzogris.png",
+        galeria: ["assets/img/tienda/buzogris.png"],
+        description: "Conjunto de buzo oficial de Strikebox, perfecto para entrenar o lucir tu pasión por las artes marciales.",
+        category: "Conjuntos"
+    },
+    {
+        id: 14,
+        name: "Conjunto Buzo Strikebox Negro con Rojo",
+        price: 45000,
+        image_url: "assets/img/tienda/buzonegro.png",
+        galeria: ["assets/img/tienda/buzonegro.png"],
+        description: "Conjunto de buzo oficial de Strikebox, perfecto para entrenar o lucir tu pasión por las artes marciales.",
+        category: "Conjuntos"
+    },
+    {
+        id: 15,
+        name: "Polerón con Cierre Strikebox Gris/Negro",
+        price: 33000,
+        image_url: "assets/img/tienda/poleroncierregris.png",
+        galeria: ["assets/img/tienda/poleroncierregris.png"],
+        description: "Conjunto de buzo oficial de Strikebox, perfecto para entrenar o lucir tu pasión por las artes marciales.",
+        category: "Polerones"
     }
 ];
 
@@ -164,12 +219,35 @@ window.filtrarProductos = function(categoria, botonClickeado = null) {
     }
 };
 
+let indiceImagenActual = 0; // NUEVO: Controla qué foto del carrusel estamos viendo
+
 function abrirModal(producto) {
     productoSeleccionado = producto;
+    indiceImagenActual = 0; // Reiniciamos el contador al abrir un nuevo producto
 
     const imgModal = document.getElementById('modal-img');
-    imgModal.src = producto.image_url;
-    // Si la imagen falla en el modal, también carga el placeholder
+    const btnPrev = document.getElementById('btn-prev');
+    const btnNext = document.getElementById('btn-next');
+    
+    // Mostramos la primera imagen (ya sea de la galería o la imagen única)
+    if (producto.galeria && producto.galeria.length > 0) {
+        imgModal.src = producto.galeria[0];
+        
+        // Si hay más de 1 foto, mostramos las flechas
+        if (producto.galeria.length > 1) {
+            btnPrev.classList.remove('oculto');
+            btnNext.classList.remove('oculto');
+        } else {
+            btnPrev.classList.add('oculto');
+            btnNext.classList.add('oculto');
+        }
+    } else {
+        // Fallback por si el producto no tiene el arreglo "galeria"
+        imgModal.src = producto.image_url;
+        btnPrev.classList.add('oculto');
+        btnNext.classList.add('oculto');
+    }
+
     imgModal.onerror = () => { 
         imgModal.src = 'https://placehold.co/400x400/1e1e1e/C21833?text=STRIKEBOX'; 
     };
@@ -184,6 +262,28 @@ function abrirModal(producto) {
     const modal = document.getElementById('modal-producto');
     modal.classList.remove('modal-oculto');
 }
+
+// NUEVA FUNCIÓN: Se activa al hacer clic en las flechas
+window.cambiarImagen = function(direccion) {
+    if (!productoSeleccionado || !productoSeleccionado.galeria) return;
+
+    const totalImagenes = productoSeleccionado.galeria.length;
+    
+    // Sumamos o restamos (1 o -1)
+    indiceImagenActual += direccion;
+
+    // Si nos pasamos de la última foto, volvemos a la primera
+    if (indiceImagenActual >= totalImagenes) {
+        indiceImagenActual = 0;
+    } 
+    // Si retrocedemos desde la primera, vamos a la última
+    else if (indiceImagenActual < 0) {
+        indiceImagenActual = totalImagenes - 1;
+    }
+
+    // Cambiamos el src de la imagen por la nueva foto
+    document.getElementById('modal-img').src = productoSeleccionado.galeria[indiceImagenActual];
+};
 
 
 // Al usar onclick="cerrarModal()" en el HTML, la función debe estar en el objeto window

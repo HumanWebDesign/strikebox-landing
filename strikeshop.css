@@ -336,6 +336,83 @@ MODAL DE COMPRA
 }
 
 /* =========================================
+GALERÍA DE MINIATURAS (MODAL)
+   ========================================= */
+.galeria-miniaturas {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.miniatura-img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0.6;
+    background-color: var(--borde-tarjeta); /* Fondo por si es PNG transparente */
+}
+
+/* Efecto al pasar el mouse o tocar en el celular */
+.miniatura-img:hover {
+    opacity: 1;
+}
+
+/* Resalta la miniatura que está seleccionada actualmente */
+.miniatura-img.activa {
+    border-color: var(--rojo-strike);
+    opacity: 1;
+}
+
+/* =========================================
+   CARRUSEL DE IMÁGENES (MODAL)
+   ========================================= */
+.carrusel-contenedor {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Evita que las flechas se salgan del borde */
+    border-radius: 8px;
+}
+
+.btn-carrusel {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    padding: 12px 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.btn-carrusel:hover {
+    background-color: var(--rojo-strike);
+}
+
+.btn-carrusel.prev {
+    left: 10px;
+}
+
+.btn-carrusel.next {
+    right: 10px;
+}
+
+.btn-carrusel.oculto {
+    display: none !important;
+}
+
+/* =========================================
 FILTROS DE PRODUCTOS
    ========================================= */
 .contenedor-filtros {
