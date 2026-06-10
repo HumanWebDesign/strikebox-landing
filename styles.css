@@ -805,6 +805,48 @@ UBICACIÓN Y MAPA
     font-size: 0.9rem;
 }
 
+.btn-flotante-wsp {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: #25D366; /* Verde oficial */
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%; /* Lo hace un círculo perfecto */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Sombra elegante */
+    z-index: 9999; /* Se asegura de estar SIEMPRE por encima del resto de la página */
+    transition: all 0.3s ease;
+}
+
+.btn-flotante-wsp svg {
+    width: 35px;
+    height: 35px;
+}
+
+/* Efecto al pasar el mouse en computadora */
+.btn-flotante-wsp:hover {
+    transform: scale(1.1); /* Crece un poquito */
+    background-color: #128C7E; /* Verde más oscuro */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+}
+
+/* Ajustes para celulares */
+@media (max-width: 768px) {
+    .btn-flotante-wsp {
+        bottom: 20px;
+        right: 20px;
+        width: 55px; /* Ligeramente más pequeño para no robar tanta pantalla */
+        height: 55px;
+    }
+    .btn-flotante-wsp svg {
+        width: 30px;
+        height: 30px;
+    }
+}
 
 /* ========================
 RESPONSIVE (MOBILE) - SIEMPRE AL FINAL
