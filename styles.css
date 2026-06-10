@@ -850,6 +850,21 @@ UBICACIÓN Y MAPA
     font-size: 0.9rem;
 }
 
+
+
+.powered-link {
+    font-weight: 600;
+    color: var(--color-gray-mid);
+    border-bottom: 1px dotted #1e2530;
+    transition: color var(--transition), border-color var(--transition);
+}
+
+.powered-link:hover {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+}
+
+
 /* ========================
 RESPONSIVE (MOBILE) - SIEMPRE AL FINAL
 ======================== */
