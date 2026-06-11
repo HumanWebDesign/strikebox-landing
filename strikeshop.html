@@ -24,9 +24,14 @@
 
         <!-- Banner / Título de la sección -->
         <section class="hero-tienda">
+            <div class="hero-tienda-overlay"></div>
             <div class="contenedor hero-text">
-                <h2>Equipamiento Oficial</h2>
+                <span class="badge-tienda">Catálogo 2026</span>
+                <h2>Equipamiento <span>Oficial</span></h2>
                 <p>Potencia tu entrenamiento en el tatami con la selección exclusiva de Strikeshop.</p>
+                <button class="btn-explorar" onclick="document.getElementById('filtro-movil').scrollIntoView({behavior: 'smooth', block: 'start'})">
+                    Explorar Productos
+                </button>
             </div>
         </section>
 
@@ -118,7 +123,10 @@
             </div>
             
             <div class="footer-bottom">
-                <p>Copyright &copy; 2026 Strikeshop. Todos los derechos reservados. | Powered by Human Web Design.</p>
+                <p class="footer-copy">Copyright &copy; Strikebox 2026 Todos los derechos reservados</p>
+                <p class="footer-powered">
+                    Powered By <a href="https://www.humanwebdesign.cl" target="_blank" rel="noopener noreferrer" class="powered-link">Human Web Design</a>
+                </p>
             </div>
         </footer>
 

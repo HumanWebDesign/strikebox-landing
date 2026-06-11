@@ -13,6 +13,8 @@ body.lf-body {
     background-color: var(--fondo-principal);
     color: var(--texto-blanco);
     scroll-behavior: smooth;
+    width: 100%; 
+    overflow-x: hidden; 
 }
 
 .contenedor { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
@@ -34,6 +36,25 @@ body.lf-body {
     justify-content: space-between;
     align-items: center;
     height: 70px;
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1100;
+    padding: 10px;
+}
+
+.menu-toggle .bar {
+    width: 30px;
+    height: 3px;
+    background-color: var(--texto-blanco); /* CORREGIDO: ahora es blanco */
+    transition: all 0.3s ease;
+    border-radius: 2px;
 }
 
 .logo-text { font-size: 1.5rem; margin: 0; font-weight: 900; }
@@ -191,12 +212,9 @@ body.lf-body {
     margin-top: 20px;
 }
 
-/* =========================================
-   GRILLA HISTORIA (Afiches uniformes)
-   ========================================= */
+/* Grilla Historia */
 .grilla-historia {
     display: grid;
-    /* Mantiene 3 columnas iguales y se adapta en móviles */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
 }
@@ -218,20 +236,18 @@ body.lf-body {
 
 .tarjeta-legado img {
     width: 100%;
-    /* Formato vertical estándar de Instagram (4:5). Todas medirán lo mismo */
     aspect-ratio: 4 / 5; 
-    object-fit: cover; /* Evita que la foto se estire o achate */
+    object-fit: cover; 
     display: block;
 }
 
-/* Efecto al pasar el mouse por encima (Hover) */
 .overlay-legado {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(194, 24, 51, 0.85); /* Tu rojo con opacidad */
+    background-color: rgba(194, 24, 51, 0.85); 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -251,7 +267,6 @@ body.lf-body {
     letter-spacing: 1px;
 }
 
-/* Pequeño efecto de elevación al pasar el mouse por el post */
 .tarjeta-instagram:hover { 
     transform: translateY(-5px); 
 }
@@ -259,18 +274,16 @@ body.lf-body {
 /* Footer */
 .footer-lf { text-align: center; padding: 20px; background-color: #000; color: #555; border-top: 1px solid #222; }
 
-
-/* Alineación de la marca (Logo + Texto) */
+/* Alineación de la marca */
 .marca-lf {
     display: flex;
     align-items: center;
-    gap: 15px; /* Controla la separación entre el logo y la palabra LEGEND */
+    gap: 15px; 
     text-decoration: none;
 }
 
-/* Tamaño del logo */
 .logo-img-lf {
-    height: 45px; /* Sube o baja este número si el logo se ve muy chico o muy grande */
+    height: 45px; 
     width: auto;
     object-fit: contain;
 }
@@ -279,58 +292,67 @@ body.lf-body {
    AJUSTES PARA MÓVILES (Smartphones y Tablets)
    ========================================= */
 @media (max-width: 768px) {
-    /* 1. Ocultar enlaces de navegación superior (mantiene solo el logo) */
-    .enlaces-lf { 
-        display: none; 
-    }
     
-    /* 2. Ajustes del Hero (Portada) */
-    .hero-lf h2 { 
-        font-size: 2.2rem; /* Achicamos un poco el título para que no se desborde */
+    /* MODIFICADO: Menú Desplegable */
+    .menu-toggle {
+        display: flex; /* Ahora sí mostramos la hamburguesa */
     }
+
+    .enlaces-lf {
+        display: none; /* Oculto por defecto */
+        position: absolute;
+        top: 70px; /* Queda justo debajo del header */
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.95);
+        flex-direction: column;
+        padding: 20px 0;
+        border-bottom: 2px solid var(--rojo-strike);
+    }
+
+    .enlaces-lf.active {
+        display: flex; /* Se muestra al hacer click */
+    }
+
+    /* Animación de la cruz */
+    .menu-toggle.active .bar:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+    .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
+    .menu-toggle.active .bar:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+    /* Ajustes del Hero */
+    .hero-lf h2 { font-size: 2.2rem; }
     .hero-botones { 
         flex-direction: column; 
         align-items: center;
         width: 100%;
     }
+
     .btn-lf-primario, .btn-lf-secundario {
-        width: 100%; /* Botones ocupan todo el ancho disponible */
+        width: 100%;
         max-width: 300px;
     }
 
-    /* 3. Centrar sección de Entradas */
+    /* Centrar sección de Entradas */
     .grid-entradas { 
         grid-template-columns: 1fr; 
         gap: 2rem; 
-        text-align: center; /* Obliga al texto a centrarse */
+        text-align: center; 
     }
     .imagen-entradas {
         display: flex;
         justify-content: center;
     }
 
-    /* 4. Centrar sección del Legado (Afiches) */
+    /* Centrar sección del Legado */
     .grilla-historia {
-        grid-template-columns: 1fr; /* Fuerza 1 sola columna en móviles */
-        max-width: 350px; /* Evita que los afiches se vean gigantes en tablets */
-        margin: 0 auto; /* Centra la grilla completa en la pantalla */
+        grid-template-columns: 1fr; 
+        max-width: 350px; 
+        margin: 0 auto; 
     }
 
-    /* 5. Ajustes del Contador para que quepa en la pantalla */
-    .contador-lf {
-        gap: 8px; /* Reducimos la separación entre cuadros */
-    }
-    
-    .tiempo-caja {
-        min-width: 65px; /* Hacemos los cuadros más delgados */
-        padding: 10px 5px; /* Menos relleno interior */
-    }
-    
-    .tiempo-numero {
-        font-size: 1.5rem; /* Achicamos un poco los números */
-    }
-    
-    .tiempo-texto {
-        font-size: 0.7rem; /* Achicamos un poco el texto de "DÍAS", "HORAS" */
-    }
+    /* Ajustes del Contador */
+    .contador-lf { gap: 8px; }
+    .tiempo-caja { min-width: 65px; padding: 10px 5px; }
+    .tiempo-numero { font-size: 1.5rem; }
+    .tiempo-texto { font-size: 0.7rem; }
 }

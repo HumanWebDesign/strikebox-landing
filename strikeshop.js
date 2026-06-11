@@ -116,6 +116,33 @@ const inventarioStrikeshop = [
     },
     {
         id: 13,
+        name: "Polera Strikebox Logo Color",
+        price: 15000,
+        image_url: "assets/img/tienda/poleralogo.jpeg",
+        galeria: ["assets/img/tienda/poleralogo.jpeg"],
+        description: "Polera oficial de Strikebox, perfecta para entrenar o lucir tu pasión por las artes marciales.",
+        category: "Poleras"
+    },
+    {
+        id: 14,
+        name: "Polera Evolución Strikebox",
+        price: 15000,
+        image_url: "assets/img/tienda/evolucion.jpeg",
+        galeria: ["assets/img/tienda/evolucion.jpeg"],
+        description: "Polera oficial de Strikebox, perfecta para entrenar o lucir tu pasión por las artes marciales.",
+        category: "Poleras"
+    },
+    {
+        id: 15,
+        name: "Polera sin mangas Strikebox",
+        price: 33000,
+        image_url: "assets/img/tienda/sinmangas.jpeg",
+        galeria: ["assets/img/tienda/sinmangas.jpeg"],
+        description: "Polera sin mangas oficial de Strikebox, perfecta para entrenar o lucir tu pasión por las artes marciales.",
+        category: "Poleras"
+    },
+    {
+        id: 16,
         name: "Conjunto Buzo Strikebox Gris",
         price: 45000,
         image_url: "assets/img/tienda/buzogris.png",
@@ -124,7 +151,7 @@ const inventarioStrikeshop = [
         category: "Conjuntos"
     },
     {
-        id: 14,
+        id: 17,
         name: "Conjunto Buzo Strikebox Negro con Rojo",
         price: 45000,
         image_url: "assets/img/tienda/buzonegro.png",
@@ -133,13 +160,49 @@ const inventarioStrikeshop = [
         category: "Conjuntos"
     },
     {
-        id: 15,
+        id: 18,
         name: "Polerón con Cierre Strikebox Gris/Negro",
         price: 33000,
         image_url: "assets/img/tienda/poleroncierregris.png",
         galeria: ["assets/img/tienda/poleroncierregris.png"],
         description: "Conjunto de buzo oficial de Strikebox, perfecto para entrenar o lucir tu pasión por las artes marciales.",
         category: "Polerones"
+    },
+    {
+        id: 19,
+        name: "Protector Genital Masculino",
+        price: 33000,
+        image_url: "assets/img/tienda/genital.jpeg",
+        galeria: ["assets/img/tienda/genital.jpeg"],
+        description: "Protector genital masculino de alta calidad, diseñado para brindar máxima protección durante el entrenamiento y la competencia.",
+        category: "Accesorios"
+    },
+    {
+        id: 20,
+        name: "Cabezal Javco color negro",
+        price: 32000,
+        image_url: "assets/img/tienda/cabezal.jpeg",
+        galeria: ["assets/img/tienda/cabezal.jpeg"],
+        description: "Cabezal Javco color negro, brinda máxima protección durante el entrenamiento y la competencia.",
+        category: "Accesorios"
+    },
+    {
+        id: 21,
+        name: "Vendas lisas o Diseño",
+        price: 10000,
+        image_url: "assets/img/tienda/vendas.jpeg",
+        galeria: ["assets/img/tienda/vendas.jpeg"],
+        description: "Vendas lisas o con diseño, ideales para el entrenamiento y la competencia.",
+        category: "Accesorios"
+    },
+    {
+        id: 22,
+        name: "Protector Bucal doble gel",
+        price: 10000,
+        image_url: "assets/img/tienda/bucal.jpeg",
+        galeria: ["assets/img/tienda/bucal.jpeg"],
+        description: "Protector bucal doble gel, brinda máxima protección durante el entrenamiento y la competencia.",
+        category: "Accesorios"
     }
 ];
 
