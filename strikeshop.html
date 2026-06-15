@@ -4,7 +4,10 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Strikeshop | Equipamiento Oficial</title>
-        <link rel="stylesheet" href="strikeshop.css"> 
+        <link rel="stylesheet" href="strikeshop.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700;900&family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
         <link rel="icon" type="image/x-icon" href="assets/img/favicontienda.ico">
     </head>
     <body class="strikeshop-body">
@@ -82,7 +85,7 @@
                     <p>Aceptamos transferencias bancarias y efectivo directamente en la sucursal al momento de retirar tu equipamiento.</p>
                 </div>
                 <div class="info-item">
-                    <h3>🔄 Cambios y Devoluciones</h3>
+                    <h3>🔄 Cambios y devoluciones</h3>
                     <p>Tienes 7 días para cambios de talla o defectos de fábrica, siempre y cuando el equipamiento no haya sido usado y se encuentre en perfectas condiciones.</p>
                 </div>
             </div>
@@ -91,19 +94,35 @@
         
         <footer class="footer-strikebox">
             <div class="contenedor footer-grid">
-                <div class="footer-col">
+
+                <div class="footer-col footer-marca">
                     <h3 class="logo-text">STRIKE<span>SHOP</span></h3>
-                    <br><p>Tienda oficial de Strikebox</p>
+                    <p class="footer-tagline">Tienda Oficial de Strikebox. Equipamiento premium para potenciar tu entrenamiento.</p>
+                    <a href="/index" class="footer-volver">
+                        <span class="flecha">←</span> Ir a Strikebox
+                    </a>
                 </div>
-                
+
                 <div class="footer-col">
                     <h4>Ubicación</h4>
-                    <p>📍 General Cruz 594, Concepción</p>
+                    <div class="footer-enlaces">
+                        <span class="enlace-contacto estatico">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                            </svg>
+                            General Cruz #594, Concepción.
+                        </span>
+                        <span class="enlace-contacto estatico">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/>
+                            </svg>
+                            Retiro en recepción de Strikebox
+                        </span>
+                    </div>
                 </div>
-            
-                
+
                 <div class="footer-col">
-                    <h4>Contacto</h4>
+                    <h4>Síguenos</h4>
                     <div class="footer-enlaces">
                         <a href="https://wa.me/56942574270" target="_blank" class="enlace-contacto whatsapp-hover">
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
@@ -111,7 +130,7 @@
                             </svg>
                             +56 9 4257 4270
                         </a>
-                        
+
                         <a href="https://instagram.com/strikeshop.store" target="_blank" class="enlace-contacto instagram-hover">
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
@@ -120,8 +139,9 @@
                         </a>
                     </div>
                 </div>
+
             </div>
-            
+
             <div class="footer-bottom">
                 <p class="footer-copy">Copyright &copy; Strikebox 2026 Todos los derechos reservados</p>
                 <p class="footer-powered">
@@ -144,6 +164,7 @@
                         <img id="modal-img" src="" alt="Producto">
                         
                         <button id="btn-next" class="btn-carrusel next oculto" onclick="cambiarImagen(1)">&#10095;</button>
+                        <span id="contador-imagenes" class="contador-carrusel"></span>
                     </div>
                     
                     <!-- Columna Derecha: Información -->

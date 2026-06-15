@@ -4,11 +4,13 @@
 :root {
     --bg-dark: #0a0a0a;
     --bg-card: #141414;
+    --bg-card-alt: #111111;
     --text-main: #ffffff;
     --text-muted: #a0a0a0;
-    --primary-orange: #FF4D00; /* Naranja extraído del logo */
-    --primary-orange-hover: #e64500;
-    
+    --primary-orange: #FF6A00; /* Naranjo vibrante deportivo */
+    --primary-orange-hover: #ff8533;
+    --primary-orange-glow: rgba(255, 106, 0, 0.35);
+
     --font-agresiva: 'Oswald', sans-serif;
     --font-cuerpo: 'Roboto', sans-serif;
 }
@@ -48,6 +50,21 @@ body {
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-bottom: 4rem;
+    position: relative;
+    padding-bottom: 1.5rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90px;
+    height: 4px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, transparent, var(--primary-orange), transparent);
+    box-shadow: 0 0 12px var(--primary-orange-glow);
 }
 
 .highlight { color: var(--primary-orange); }
@@ -145,7 +162,27 @@ BOTONES GENERALES
     text-decoration: none;
     font-weight: bold;
     border-radius: 4px;
-    transition: background 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.btn-primary::before, .btn-large::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
+    transform: skewX(-25deg);
+    transition: left 0.6s ease;
+    z-index: 1;
+}
+
+.btn-primary:hover::before, .btn-large:hover::before {
+    left: 125%;
 }
 
 .btn-primary {
@@ -164,6 +201,8 @@ BOTONES GENERALES
 
 .btn-primary:hover, .btn-large:hover {
     background-color: var(--primary-orange-hover);
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 10px 25px var(--primary-orange-glow);
 }
 
 /* ========================
@@ -171,6 +210,7 @@ BOTONES GENERALES
 ======================== */
 .hero {
     height: 100vh;
+    height: 100dvh; /* Usa la altura real visible en navegadores móviles */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -198,6 +238,12 @@ BOTONES GENERALES
 
 .slider-bg.active {
     opacity: 1;
+    animation: heroZoom 9s ease-in-out infinite alternate;
+}
+
+@keyframes heroZoom {
+    from { transform: scale(1); }
+    to { transform: scale(1.08); }
 }
 
 .hero-content {
@@ -228,7 +274,13 @@ BOTONES GENERALES
 /* ========================
    DISCIPLINAS
 ======================== */
-.disciplinas { padding: 8rem 0; }
+.disciplinas {
+    padding: 9rem 0 11rem;
+    background-color: var(--bg-card-alt);
+    clip-path: polygon(0 4%, 100% 0, 100% 96%, 0 100%);
+    position: relative;
+    z-index: 1;
+}
 
 .grid-disciplinas {
     display: grid;
@@ -241,12 +293,32 @@ BOTONES GENERALES
     padding: 2.5rem;
     border-radius: 8px;
     border-bottom: 4px solid #333;
-    transition: transform 0.3s ease, border-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.card::after {
+    content: '';
+    position: absolute;
+    top: -60%;
+    left: -60%;
+    width: 220%;
+    height: 220%;
+    background: radial-gradient(circle, var(--primary-orange-glow) 0%, transparent 55%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
 }
 
 .card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px) scale(1.02);
     border-bottom-color: var(--primary-orange);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+}
+
+.card:hover::after {
+    opacity: 1;
 }
 
 .card h3 {
@@ -261,7 +333,14 @@ BOTONES GENERALES
 /* ========================
    HORARIOS Y FILTROS
 ======================== */
-.horarios { padding: 8rem 0; }
+.horarios {
+    padding: 9rem 0 11rem;
+    background-color: var(--bg-dark);
+    clip-path: polygon(0 0, 100% 4%, 100% 100%, 0 96%);
+    position: relative;
+    z-index: 2;
+    margin-top: -4rem;
+}
 
 .filtros { margin-bottom: 3rem; }
 
@@ -369,12 +448,13 @@ BOTONES GENERALES
     border-radius: 8px;
     border: 1px solid #222;
     border-top: 4px solid var(--primary-orange);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
 }
 
 .card-implemento:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 20px rgba(255, 77, 0, 0.15);
+    transform: translateY(-8px) scale(1.015);
+    border-color: var(--primary-orange);
+    box-shadow: 0 12px 30px var(--primary-orange-glow);
 }
 
 .card-implemento h3 {
@@ -420,7 +500,7 @@ BOTONES GENERALES
     padding: 1.5rem;
     max-width: 600px;
     margin: 0 auto 3rem auto;
-    box-shadow: 0 4px 15px rgba(255, 77, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(255, 106, 0, 0.1);
 }
 
 .banner-clase-suelta h3 {
@@ -466,7 +546,7 @@ BOTONES GENERALES
     background-color: var(--primary-orange);
     border-color: var(--primary-orange);
     color: #fff;
-    box-shadow: 0 4px 10px rgba(255, 77, 0, 0.3);
+    box-shadow: 0 4px 10px rgba(255, 106, 0, 0.3);
 }
 
 .tab-pane {
@@ -497,10 +577,14 @@ BOTONES GENERALES
     text-align: center;
     border: 1px solid #222;
     position: relative;
-    transition: transform 0.3s ease;
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
 }
 
-.card-plan:hover { transform: translateY(-10px); }
+.card-plan:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary-orange);
+    box-shadow: 0 15px 35px var(--primary-orange-glow);
+}
 
 .card-plan h3 {
     font-family: var(--font-agresiva);
@@ -544,21 +628,51 @@ BOTONES GENERALES
     text-decoration: none;
     font-weight: bold;
     border-radius: 4px;
+    position: relative;
+    overflow: hidden;
     transition: all 0.3s ease;
+}
+
+.btn-plan::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.25), transparent);
+    transform: skewX(-25deg);
+    transition: left 0.6s ease;
+}
+
+.btn-plan:hover::before {
+    left: 125%;
 }
 
 .btn-plan:hover {
     background-color: var(--primary-orange);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px var(--primary-orange-glow);
 }
 
 .destacado {
     border-color: var(--primary-orange);
-    box-shadow: 0 0 20px rgba(255, 77, 0, 0.2);
+    box-shadow: 0 0 25px var(--primary-orange-glow);
     transform: scale(1.05);
     padding: 4rem 2rem;
+    animation: pulseGlow 3s ease-in-out infinite;
 }
 
-.destacado:hover { transform: scale(1.05) translateY(-10px); }
+@keyframes pulseGlow {
+    0%, 100% { box-shadow: 0 0 20px var(--primary-orange-glow); }
+    50% { box-shadow: 0 0 35px var(--primary-orange-glow), 0 0 60px var(--primary-orange-glow); }
+}
+
+.destacado:hover {
+    transform: scale(1.05) translateY(-10px);
+    animation-play-state: paused;
+}
+
 .destacado h3 { color: var(--primary-orange); }
 
 .badge {
@@ -674,7 +788,14 @@ BOTONES GENERALES
 /* ========================
    COMUNIDAD INSTAGRAM
 ======================== */
-.comunidad { padding: 8rem 0; }
+.comunidad {
+    padding: 9rem 0 11rem;
+    background-color: var(--bg-card-alt);
+    clip-path: polygon(0 4%, 100% 0, 100% 96%, 0 100%);
+    position: relative;
+    z-index: 1;
+    margin-top: -4rem;
+}
 
 .grid-instagram {
     display: grid;
@@ -744,6 +865,7 @@ UBICACIÓN Y MAPA
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
     z-index: 9999; /* Se asegura de estar siempre por encima */
     transition: all 0.3s ease;
+    animation: wspPulse 2.5s infinite;
 }
 
 .btn-flotante-wsp svg {
@@ -755,7 +877,16 @@ UBICACIÓN Y MAPA
     transform: scale(1.1);
     background-color: #128C7E;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+    animation: none;
 }
+
+@keyframes wspPulse {
+    0% { box-shadow: 0 4px 15px rgba(0,0,0,0.4), 0 0 0 0 rgba(37, 211, 102, 0.5); }
+    70% { box-shadow: 0 4px 15px rgba(0,0,0,0.4), 0 0 0 14px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 4px 15px rgba(0,0,0,0.4), 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+
 
 /* Ajustes para celulares */
 @media (max-width: 768px) {
@@ -781,12 +912,83 @@ UBICACIÓN Y MAPA
 }
 
 .footer-content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    gap: 2rem;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1fr 1fr;
+    gap: 2.5rem;
+    align-items: start;
     margin-bottom: 3rem;
+}
+
+/* Columna 1: Logo + tagline */
+.footer-brand .footer-logo {
+    height: 40px;
+    display: block;
+    margin-bottom: 1.2rem;
+}
+
+.footer-tagline {
+    color: var(--text-muted);
+    font-family: var(--font-agresiva);
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    line-height: 1.6;
+    text-transform: uppercase;
+}
+
+/* Columna 2: Secciones */
+.footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+}
+
+.footer-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--primary-orange);
+    padding-left: 5px;
+}
+
+/* Columna 5: Redes (icono + label) */
+.footer-social-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.footer-social-list a {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-social-list svg {
+    width: 24px;
+    height: 24px;
+    fill: var(--text-muted);
+    flex-shrink: 0;
+    transition: fill 0.3s ease;
+}
+
+.footer-social-list a:hover {
+    color: var(--primary-orange);
+    transform: translateX(5px);
+}
+
+.footer-social-list a:hover svg {
+    fill: var(--primary-orange);
 }
 
 .footer-title {
@@ -811,36 +1013,6 @@ UBICACIÓN Y MAPA
     fill: var(--primary-orange);
     flex-shrink: 0;
 }
-
-.social-links {
-    display: flex;
-    gap: 1.5rem;
-}
-
-.social-links a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 50px;
-    height: 50px;
-    background-color: #1a1a1a;
-    border-radius: 50%;
-    transition: all 0.3s ease;
-}
-
-.social-links svg {
-    width: 24px;
-    height: 24px;
-    fill: var(--text-main);
-    transition: fill 0.3s ease;
-}
-
-.social-links a:hover {
-    background-color: var(--primary-orange);
-    transform: translateY(-5px);
-}
-
-.social-links a:hover svg { fill: white; }
 
 .footer-bottom {
     text-align: center;
@@ -868,6 +1040,18 @@ UBICACIÓN Y MAPA
 /* ========================
 RESPONSIVE (MOBILE) - SIEMPRE AL FINAL
 ======================== */
+
+@media (max-width: 1024px) {
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem 2rem;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+}
+
 @media (max-width: 768px) {
     .menu-toggle {
         display: flex; 
@@ -912,13 +1096,36 @@ RESPONSIVE (MOBILE) - SIEMPRE AL FINAL
     .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
     .menu-toggle.active .bar:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
 
-    .hero-content h1 { font-size: 2.8rem; }
+    .hero {
+    padding-top: 70px;
+    padding-bottom: 2rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2.4rem;
+        margin-bottom: 0.8rem;
+        line-height: 1.2;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+        padding: 0 0.5rem;
+    }
+
+    .btn-large {
+        padding: 0.8rem 1.8rem;
+        font-size: 1rem;
+        margin-top: 0.5rem;
+    }
+
     .section-title { font-size: 2.2rem; }
 
     /* FILTROS RESPONSIVE */
     .filtros-desktop {
         display: none !important; /* Oculta los botones en móvil */
     }
+
     .filtros-mobile {
         display: flex;
         flex-direction: column;
@@ -926,4 +1133,43 @@ RESPONSIVE (MOBILE) - SIEMPRE AL FINAL
         align-items: center;
         margin-bottom: 3rem;
     }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2.5rem;
+    }
+
+    .footer-brand {
+        grid-column: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-links {
+        align-items: center;
+    }
+
+    .footer-social-list a {
+        justify-content: center;
+    }
+
+    .contact-info li {
+        justify-content: flex-start;
+        text-align: left;
+    }
+}
+
+@media (max-width: 768px) {
+    .disciplinas, .horarios, .comunidad {
+        clip-path: none;
+        margin-top: 0;
+        padding: 4rem 0;
+    }
+}
+
+@media (max-width: 380px) {
+    .hero-content h1 { font-size: 2rem; }
+    .hero-content p { font-size: 0.9rem; }
 }

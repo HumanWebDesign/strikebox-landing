@@ -223,25 +223,30 @@ function cargarProductosEstaticos() {
 // ... [Desde aquí hacia abajo, mantienes tu función renderizarProductos, los filtros, el modal y el botón de WhatsApp tal cual los tenías]
 
 
-// Nueva función exclusiva para pintar las tarjetas en pantalla
 function renderizarProductos(productosRender) {
     const contenedor = document.getElementById('grilla-strikeshop');
-    contenedor.innerHTML = ''; 
+    contenedor.innerHTML = '';
 
-    // Mensaje si la categoría está vacía
     if (productosRender.length === 0) {
         contenedor.innerHTML = '<p class="mensaje-carga">Próximamente agregaremos inventario en esta categoría.</p>';
         return;
     }
 
-    productosRender.forEach(producto => {
+    productosRender.forEach((producto, index) => {
         const card = document.createElement('div');
-        card.classList.add('producto-card'); 
+        card.classList.add('producto-card');
+        // Animación escalonada al aparecer
+        card.style.animationDelay = `${Math.min(index * 0.05, 0.5)}s`;
 
         card.innerHTML = `
-            <img src="${producto.image_url}" onerror="this.src='https://placehold.co/400x400/1e1e1e/C21833?text=STRIKEBOX'" alt="${producto.name}">
-            <h3>${producto.name}</h3>
-            <p class="precio">$${producto.price.toLocaleString('es-CL')}</p>
+            <div class="producto-img-wrapper">
+                <img src="${producto.image_url}" onerror="this.src='https://placehold.co/400x400/1e1e1e/FF6A00?text=STRIKEBOX'" alt="${producto.name}">
+                <span class="producto-quickview">Ver detalles</span>
+            </div>
+            <div class="producto-info">
+                <h3>${producto.name}</h3>
+                <p class="precio">$${producto.price.toLocaleString('es-CL')}</p>
+            </div>
         `;
 
         card.addEventListener('click', () => abrirModal(producto));
@@ -251,7 +256,18 @@ function renderizarProductos(productosRender) {
 
 // Lógica que se activa al clickear un botón o usar la lista móvil
 window.filtrarProductos = function(categoria, botonClickeado = null) {
-    
+
+    const grilla = document.getElementById('grilla-strikeshop');
+
+    // 0. Transición de salida (fade out suave)
+    grilla.classList.add('grilla-transicion');
+
+    setTimeout(() => {
+        ejecutarFiltro(categoria, botonClickeado, grilla);
+    }, 180);
+};
+
+function ejecutarFiltro(categoria, botonClickeado, grilla) {
     // 1. Filtrar el arreglo en memoria
     let productosFiltrados;
     if (categoria === 'Todos') {
@@ -280,7 +296,10 @@ window.filtrarProductos = function(categoria, botonClickeado = null) {
             }
         });
     }
-};
+
+    // 4. Transición de entrada (fade in suave)
+    grilla.classList.remove('grilla-transicion');
+}
 
 let indiceImagenActual = 0; // NUEVO: Controla qué foto del carrusel estamos viendo
 
@@ -316,6 +335,7 @@ function abrirModal(producto) {
     };
 
     document.getElementById('modal-img').alt = producto.name;
+        actualizarContador();
     document.getElementById('modal-nombre').textContent = producto.name;
     document.getElementById('modal-descripcion').textContent = producto.description || 'Sin descripción disponible para este artículo.';
     
@@ -346,7 +366,19 @@ window.cambiarImagen = function(direccion) {
 
     // Cambiamos el src de la imagen por la nueva foto
     document.getElementById('modal-img').src = productoSeleccionado.galeria[indiceImagenActual];
+        actualizarContador();
 };
+
+// Actualiza el contador "1 / 3" del carrusel del modal
+function actualizarContador() {
+    const contador = document.getElementById('contador-imagenes');
+    if (!productoSeleccionado || !productoSeleccionado.galeria || productoSeleccionado.galeria.length <= 1) {
+        contador.style.display = 'none';
+        return;
+    }
+    contador.style.display = 'block';
+    contador.textContent = `${indiceImagenActual + 1} / ${productoSeleccionado.galeria.length}`;
+}
 
 
 // Al usar onclick="cerrarModal()" en el HTML, la función debe estar en el objeto window

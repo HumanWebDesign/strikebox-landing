@@ -274,6 +274,18 @@ body.lf-body {
 /* Footer */
 .footer-lf { text-align: center; padding: 20px; background-color: #000; color: #555; border-top: 1px solid #222; }
 
+.powered-link {
+    font-weight: 600;
+    color: var(--color-gray-mid);
+    border-bottom: 1px dotted #1e2530;
+    transition: color var(--transition), border-color var(--transition);
+}
+
+.powered-link:hover {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+}
+
 /* Alineación de la marca */
 .marca-lf {
     display: flex;

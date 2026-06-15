@@ -9,6 +9,7 @@ VARIABLES GLOBALES (Estética Strikebox)
     --texto-blanco: #f5f5f5;
     --texto-gris: #a0a0a0;
     --fuente-principal: 'Montserrat', 'Roboto', sans-serif; 
+    --fuente-titulos: 'Oswald', 'Montserrat', sans-serif;
 }
 
 /* =========================================
@@ -24,6 +25,15 @@ html, body.strikeshop-body {
     /* ESTAS DOS LÍNEAS MATAN EL SCROLL HORIZONTAL */
     width: 100%; 
     overflow-x: hidden; 
+}
+
+.logo-text,
+.hero-text h2,
+.titulo-seccion,
+.footer-col h4,
+.modal-info h2 {
+    font-family: var(--fuente-titulos);
+    letter-spacing: 1px;
 }
 
 *, *::before, *::after {
@@ -222,44 +232,116 @@ TARJETAS DE PRODUCTO
 .producto-card {
     background-color: var(--fondo-secundario);
     border: 1px solid var(--borde-tarjeta);
-    border-radius: 8px;
-    padding: 1.5rem;
+    border-radius: 12px;
+    padding: 1.2rem;
     text-align: center;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    animation: cardFadeIn 0.45s ease forwards;
+}
+
+@keyframes cardFadeIn {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Destello diagonal al pasar el mouse */
+.producto-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.07), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.7s ease;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.producto-card:hover::before {
+    left: 125%;
 }
 
 .producto-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--rojo-strike);
-    box-shadow: 0 8px 20px rgba(229, 9, 20, 0.15);
+    transform: translateY(-8px) scale(1.015);
+    border-color: var(--naranjo-strike);
+    box-shadow: 0 12px 30px var(--naranjo-glow);
 }
 
-.producto-card img {
+/* Contenedor de imagen: recorta el zoom */
+.producto-img-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.producto-img-wrapper img {
     width: 100%;
     aspect-ratio: 1 / 1;
-    object-fit: cover; 
-    border-radius: 4px;
-    background-color: #2a2a2a; 
-    margin-bottom: 1rem;
+    object-fit: cover;
+    background-color: #2a2a2a;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.producto-card:hover .producto-img-wrapper img {
+    transform: scale(1.1);
+}
+
+/* Botón "Ver detalles" que sube desde abajo */
+.producto-quickview {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -45px;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+    color: var(--naranjo-strike);
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    padding: 1.6rem 0 0.6rem;
+    transition: bottom 0.35s ease;
+}
+
+.producto-card:hover .producto-quickview {
+    bottom: 0;
+}
+
+.producto-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
 }
 
 .producto-card h3 {
     font-size: 1.2rem;
     color: var(--texto-blanco);
-    margin: 0 0 10px 0;
+    margin: 0;
     font-weight: 600;
-    /* Obliga a las palabras gigantes a saltar a la línea de abajo */
-    word-break: break-word; 
+    word-break: break-word;
     hyphens: auto;
 }
 
+/* Precio en formato "badge" agresivo */
 .producto-card .precio {
-    color: var(--rojo-strike);
-    font-size: 1.4rem;
+    display: inline-block;
+    align-self: center;
+    color: var(--naranjo-strike);
+    background-color: rgba(255, 106, 0, 0.1);
+    border: 1px solid var(--naranjo-strike);
+    padding: 4px 16px;
+    border-radius: 30px;
+    font-size: 1.25rem;
     font-weight: 800;
     margin: 0;
 }
@@ -286,14 +368,14 @@ MODAL DE COMPRA
 }
 
 .modal-contenido {
-    background-color: var(--fondo-secundario);
+    background: linear-gradient(150deg, var(--fondo-secundario) 0%, #161616 100%);
     border: 1px solid var(--borde-tarjeta);
-    border-radius: 12px;
+    border-radius: 16px;
     max-width: 800px;
     width: 100%;
     position: relative;
     padding: 2rem;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    box-shadow: 0 25px 60px rgba(0,0,0,0.7), 0 0 40px rgba(255, 106, 0, 0.08);
 }
 
 .btn-cerrar-modal {
@@ -321,38 +403,48 @@ MODAL DE COMPRA
 
 .modal-imagen-contenedor img {
     width: 100%;
-    border-radius: 8px;
+    border-radius: 10px;
     object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.carrusel-contenedor:hover .modal-imagen-contenedor img,
+.carrusel-contenedor:hover img {
+    transform: scale(1.03);
 }
 
 .etiqueta-oficial {
-    background-color: var(--rojo-strike);
-    color: white;
-    padding: 4px 10px;
+    background: linear-gradient(135deg, var(--rojo-strike));
+    color: #111;
+    padding: 5px 14px;
     font-size: 0.8rem;
-    font-weight: bold;
-    border-radius: 4px;
+    font-weight: 800;
+    border-radius: 30px;
     text-transform: uppercase;
+    letter-spacing: 1px;
     display: inline-block;
     margin-bottom: 1rem;
+    box-shadow: 0 4px 14px var(--naranjo-glow);
 }
 
 .modal-info h2 {
-    font-size: 2rem;
-    margin: 0 0 1rem 0;
+    font-size: 1.9rem;
+    line-height: 1.25;
+    margin: 0 0 0.8rem 0;
 }
 
 .modal-info p {
-    color: var(--texto-gris);
-    line-height: 1.6;
+    color: #c9c9c9;
+    line-height: 1.8;
+    font-size: 1rem;
     margin-bottom: 1.5rem;
 }
 
 .modal-precio-caja {
-    background-color: var(--fondo-principal);
-    padding: 1rem;
-    border-radius: 8px;
-    border: 1px solid #333;
+    background: linear-gradient(135deg, rgba(255, 106, 0, 0.12), rgba(255, 106, 0, 0.02));
+    padding: 1.2rem;
+    border-radius: 10px;
+    border: 1px solid var(--naranjo-strike);
     margin-bottom: 1.5rem;
 }
 
@@ -361,34 +453,73 @@ MODAL DE COMPRA
     color: var(--texto-gris);
     font-size: 0.9rem;
     margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .precio-destacado {
-    color: var(--rojo-strike) !important;
-    font-size: 2rem !important;
-    font-weight: 800;
+    font-size: 2.4rem !important;
+    font-weight: 900;
     margin: 0 !important;
+    background: linear-gradient(135deg, var(--rojo-strike), #ffa8a8);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent !important;
 }
 
 .btn-whatsapp {
     width: 100%;
-    background-color: #25D366;
+    background: linear-gradient(135deg, #25D366, #1da851);
     color: white;
     border: none;
-    padding: 15px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    border-radius: 6px;
+    padding: 18px;
+    font-size: 1.15rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: 50px;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
-    transition: background-color 0.3s;
+    gap: 12px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.35);
+    animation: pulseWsp 2.5s infinite;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.btn-whatsapp::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.45), transparent);
+    transform: skewX(-25deg);
+    transition: left 0.6s ease;
+}
+
+.btn-whatsapp:hover::before {
+    left: 125%;
 }
 
 .btn-whatsapp:hover {
-    background-color: #128C7E;
+    background: linear-gradient(135deg, #1da851, #128C7E);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(37, 211, 102, 0.5);
+    animation-play-state: paused;
+}
+
+@keyframes pulseWsp {
+    0%, 100% {
+        box-shadow: 0 8px 25px rgba(37, 211, 102, 0.35);
+    }
+    50% {
+        box-shadow: 0 8px 25px rgba(37, 211, 102, 0.35), 0 0 0 10px rgba(37, 211, 102, 0.12);
+    }
 }
 
 @media (max-width: 768px) {
@@ -447,11 +578,16 @@ CARRUSEL DE IMÁGENES (MODAL)
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(4px);
     color: white;
     border: none;
-    font-size: 1.5rem;
-    padding: 12px 15px;
+    font-size: 1.4rem;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
     border-radius: 50%;
     transition: all 0.3s ease;
@@ -472,6 +608,21 @@ CARRUSEL DE IMÁGENES (MODAL)
 
 .btn-carrusel.oculto {
     display: none !important;
+}
+
+.contador-carrusel {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    color: var(--texto-blanco);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 5px 12px;
+    border-radius: 30px;
+    z-index: 10;
 }
 
 /* =========================================
@@ -604,6 +755,13 @@ FOOTER STRIKEBOX
     margin-bottom: 3rem;
 }
 
+@media (min-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1.3fr 1fr 1fr;
+        gap: 2rem;
+    }
+}
+
 .footer-col h4 {
     color: var(--rojo-strike);
     font-size: 1.2rem;
@@ -619,11 +777,88 @@ FOOTER STRIKEBOX
     line-height: 1.5;
 }
 
+/* Columna de marca */
+.footer-marca .logo-text {
+    margin: 0 0 0.8rem 0;
+}
+
+.footer-tagline {
+    color: var(--texto-gris);
+    line-height: 1.6;
+    margin: 0;
+    font-size: 0.95rem;
+    max-width: 320px;
+}
+
+.footer-volver {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 1.4rem;
+    color: var(--texto-gris);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.footer-volver:hover {
+    color: var(--rojo-strike);
+}
+
+.footer-volver .flecha {
+    transition: transform 0.3s ease;
+}
+
+.footer-volver:hover .flecha {
+    transform: translateX(-4px);
+}
+
+/* Acento bajo los títulos del footer */
+.footer-col h4 {
+    position: relative;
+    padding-bottom: 0.9rem;
+}
+
+.footer-col h4::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, var(--rojo-strike), transparent);
+}
+
+/* Texto informativo sin link (dirección, retiro en tienda) */
+.enlace-contacto.estatico {
+    cursor: default;
+}
+
+.enlace-contacto.estatico:hover {
+    transform: none;
+    color: var(--texto-gris);
+}
+
+/* Evita que íconos y texto se aplasten en pantallas angostas */
+.enlace-contacto {
+    max-width: 100%;
+}
+
+.enlace-contacto svg {
+    flex-shrink: 0;
+}
+
 .footer-bottom {
     background-color: #0a0a0a;
-    text-align: center;
-    padding: 1.5rem 20px;
     border-top: 1px solid #1a1a1a;
+    padding: 1.5rem 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+    text-align: center;
 }
 
 .footer-bottom p {
@@ -633,8 +868,12 @@ FOOTER STRIKEBOX
 }
 
 @media (min-width: 768px) {
-    .footer-grid {
-        grid-template-columns: repeat(4, 1fr); 
+    .footer-bottom {
+        flex-direction: row;
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1.5rem 20px;
     }
 }
 
@@ -796,22 +1035,37 @@ AJUSTES PARA MÓVILES (Adaptación Final)
         font-size: 0.95rem;
     }
 
-    /* Footer: Agrandar textos y darles respiro centrado */
+    /* Footer: centrado y bien proporcionado en móvil */
     .footer-strikebox {
         padding: 3rem 20px 0 20px;
     }
     .footer-grid {
-        gap: 2rem;
+        gap: 2.5rem;
         text-align: center;
+    }
+    .footer-marca {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer-tagline {
+        max-width: 100%;
     }
     .footer-col h4 {
         font-size: 1.1rem;
+    }
+    .footer-col h4::after {
+        left: 50%;
+        transform: translateX(-50%);
     }
     .footer-col p {
         font-size: 0.95rem;
     }
     .footer-enlaces {
         align-items: center;
+    }
+    .enlace-contacto {
+        text-align: left;
     }
 
     /* ========================================= AJUSTES DEL MODAL PARA MÓVIL ========================================= */
