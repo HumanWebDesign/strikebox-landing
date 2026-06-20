@@ -1069,30 +1069,96 @@ AJUSTES PARA MÓVILES (Adaptación Final)
     }
 
     /* ========================================= AJUSTES DEL MODAL PARA MÓVIL ========================================= */
+    /* ========================================= AJUSTES DEL MODAL PARA MÓVIL ========================================= */
     #modal-producto {
-        padding: 15px; /* Menos margen negro alrededor */
-        align-items: flex-start; /* Hace que el modal empiece desde arriba en pantallas pequeñas */
+        padding: 0;
+        align-items: flex-end; /* El sheet sube desde abajo, más natural en móvil */
     }
 
     .modal-contenido {
-        padding: 40px 15px 20px 15px; /* Espacio extra arriba para no tapar la "X" */
-        max-height: 92vh; /* El modal no puede ser más alto que el 92% de la pantalla */
-        overflow-y: auto; /* ¡LA MAGIA! Crea un scroll interno para que puedas bajar al botón */
+        border-radius: 20px 20px 0 0; /* Sheet con esquinas redondeadas solo arriba */
+        padding: 0;
+        max-height: 95dvh;
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden; /* El scroll lo controla cada zona por separado */
     }
 
     .btn-cerrar-modal {
-        top: 5px;
-        right: 10px;
+        top: 12px;
+        right: 16px;
         z-index: 20;
+        background: rgba(0,0,0,0.5);
+        border-radius: 50%;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.4rem;
+        line-height: 1;
+    }
+
+    /* Imagen: zona fija en la parte superior del sheet */
+    .modal-imagen-contenedor {
+        flex-shrink: 0;
+        max-height: 38dvh;
+        overflow: hidden;
+        border-radius: 0;
+        background-color: #1a1a1a;
     }
 
     .modal-imagen-contenedor img {
-        max-height: 40vh; /* Evita que la foto ocupe el 100% de la altura */
-        object-fit: contain; /* Mantiene la proporción del producto sin cortarlo */
-        background-color: transparent; /* Opcional: quita el fondo gris si la imagen tiene fondo rojo */
+        width: 100%;
+        height: 38dvh;
+        max-height: 38dvh;
+        object-fit: contain;
+        background-color: transparent;
     }
-    
+
+    /* Info: zona scrollable solo si el contenido fuera muy largo */
+    .modal-info {
+        flex: 1;
+        overflow-y: auto;
+        padding: 1.2rem 1.2rem 1.4rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
     .modal-info h2 {
-        font-size: 1.5rem; /* Achica un poco el título del guante */
+        font-size: 1.3rem;
+        margin: 0;
+    }
+
+    .modal-info > p {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+        line-height: 1.6;
+        color: var(--texto-gris);
+    }
+
+    .modal-precio-caja {
+        padding: 0.8rem 1rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .precio-destacado {
+        font-size: 1.9rem !important;
+    }
+
+    .btn-whatsapp {
+        padding: 15px;
+        font-size: 1rem;
+        border-radius: 12px;
+        flex-shrink: 0;
+    }
+
+    /* Forzar que la grilla del modal sea 1 sola columna */
+    .modal-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
     }
 }
