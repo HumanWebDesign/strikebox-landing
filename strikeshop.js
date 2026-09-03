@@ -3,7 +3,7 @@ const inventarioStrikeshop = [
     {
         id: 1,
         name: "Guantes Javco Blanco/Dorado",
-        price: 35000,
+        price: 39000,
         brand: "Javco",
         image_url: "assets/img/tienda/guantes1.png",
         galeria: ["assets/img/tienda/guantes1.png"],
@@ -13,7 +13,7 @@ const inventarioStrikeshop = [
     {
         id: 2,
         name: "Guantes Javco Azul/Negro",
-        price: 35000,
+        price: 39000,
         brand: "Javco",
         image_url: "assets/img/tienda/guantes2.png",
         galeria: ["assets/img/tienda/guantes2.png"],
@@ -23,7 +23,7 @@ const inventarioStrikeshop = [
     {
         id: 3,
         name: "Guantes Javco Azul/Blanco",
-        price: 35000,
+        price: 39000,
         brand: "Javco",
         image_url: "assets/img/tienda/guantes3.png",
         galeria: ["assets/img/tienda/guantes3.png"],
@@ -33,7 +33,7 @@ const inventarioStrikeshop = [
     {
         id: 4,
         name: "Guantes Javco Rojo/Blanco",
-        price: 35000,
+        price: 39000,
         brand: "Javco",
         image_url: "assets/img/tienda/guantes4.png",
         galeria: ["assets/img/tienda/guantes4.png"],
@@ -43,7 +43,7 @@ const inventarioStrikeshop = [
     {
         id: 5,
         name: "Guantes Javco Negro/Blanco",
-        price: 35000,
+        price: 39000,
         brand: "Javco",
         image_url: "assets/img/tienda/guantes5.png",
         galeria: ["assets/img/tienda/guantes5.png"],
@@ -53,7 +53,7 @@ const inventarioStrikeshop = [
     {
         id: 6,
         name: "Guantes Javco Negro/Dorado",
-        price: 35000,
+        price: 39000,
         brand: "Javco",
         image_url: "assets/img/tienda/guantes6.png",
         galeria: ["assets/img/tienda/guantes6.png"],
@@ -63,7 +63,7 @@ const inventarioStrikeshop = [
     {
         id: 7,
         name: "Espinilleras/Canilleras Javco Negro/Dorado",
-        price: 42000,
+        price: 48000,
         image_url: "assets/img/tienda/espinilleras1.png",
         galeria: ["assets/img/tienda/espinilleras1.png"],
         description: "Protección de alto impacto para sparring duro.",
@@ -72,7 +72,7 @@ const inventarioStrikeshop = [
     {
         id: 8,
         name: "Espinilleras / Canilleras Javco Blanco/Rosado",
-        price: 42000,
+        price: 48000,
         image_url: "assets/img/tienda/espinilleras2.png",
         galeria: ["assets/img/tienda/espinilleras2.png"],
         description: "Protección de alto impacto para sparring duro.",
@@ -81,7 +81,7 @@ const inventarioStrikeshop = [
     {
         id: 9,
         name: "Espinilleras / Canilleras Javco Blanco/Dorado",
-        price: 42000,
+        price: 48000,
         image_url: "assets/img/tienda/espinilleras3.png",
         galeria: ["assets/img/tienda/espinilleras3.png"],
         description: "Protección de alto impacto para sparring duro.",
@@ -90,7 +90,7 @@ const inventarioStrikeshop = [
     {
         id: 10,
         name: "Vendas rápidas",
-        price: 12000,
+        price: 15000,
         image_url: "assets/img/tienda/vendarapida1.png",
         galeria: ["assets/img/tienda/vendarapida1.png"],
         description: "Vendaje de alta calidad para proteger tus manos durante el entrenamiento.",
@@ -135,7 +135,7 @@ const inventarioStrikeshop = [
     {
         id: 15,
         name: "Polera sin mangas Strikebox",
-        price: 33000,
+        price: 15000,
         image_url: "assets/img/tienda/sinmangas.jpeg",
         galeria: ["assets/img/tienda/sinmangas.jpeg"],
         description: "Polera sin mangas oficial de Strikebox, perfecta para entrenar o lucir tu pasión por las artes marciales.",
@@ -144,7 +144,7 @@ const inventarioStrikeshop = [
     {
         id: 16,
         name: "Conjunto Buzo Strikebox Gris",
-        price: 45000,
+        price: 48000,
         image_url: "assets/img/tienda/buzogris.png",
         galeria: ["assets/img/tienda/buzogris.png"],
         description: "Conjunto de buzo oficial de Strikebox, perfecto para entrenar o lucir tu pasión por las artes marciales.",
@@ -152,8 +152,8 @@ const inventarioStrikeshop = [
     },
     {
         id: 17,
-        name: "Conjunto Buzo Strikebox Negro con Rojo",
-        price: 45000,
+        name: "Conjunto Buzo Bicolor Strikebox",
+        price: 50000,
         image_url: "assets/img/tienda/buzonegro.png",
         galeria: ["assets/img/tienda/buzonegro.png"],
         description: "Conjunto de buzo oficial de Strikebox, perfecto para entrenar o lucir tu pasión por las artes marciales.",
@@ -162,16 +162,25 @@ const inventarioStrikeshop = [
     {
         id: 18,
         name: "Polerón con Cierre Strikebox Gris/Negro",
-        price: 33000,
+        price: 34000,
         image_url: "assets/img/tienda/poleroncierregris.png",
         galeria: ["assets/img/tienda/poleroncierregris.png"],
         description: "Conjunto de buzo oficial de Strikebox, perfecto para entrenar o lucir tu pasión por las artes marciales.",
         category: "Polerones"
     },
     {
+        id: 23,
+        name: "Polerón Glitter Rosa o Años",
+        price: 32000,
+        image_url: "assets/img/tienda/poleronglitter1adelante.jpg",
+        galeria: ["assets/img/tienda/poleronglitter1adelante.jpg", "assets/img/tienda/poleronglitter1atras.jpg", "assets/img/tienda/poleronglitter1lado.jpg"],
+        description: "Polerón brillantes oficial de Strikebox, perfecto para entrenar o lucir tu pasión por las artes marciales.",
+        category: "Polerones"
+    },
+    {
         id: 19,
         name: "Protector Genital Masculino",
-        price: 33000,
+        price: 13000,
         image_url: "assets/img/tienda/genital.jpeg",
         galeria: ["assets/img/tienda/genital.jpeg"],
         description: "Protector genital masculino de alta calidad, diseñado para brindar máxima protección durante el entrenamiento y la competencia.",
@@ -180,7 +189,7 @@ const inventarioStrikeshop = [
     {
         id: 20,
         name: "Cabezal Javco color negro",
-        price: 32000,
+        price: 42000,
         image_url: "assets/img/tienda/cabezal.jpeg",
         galeria: ["assets/img/tienda/cabezal.jpeg"],
         description: "Cabezal Javco color negro, brinda máxima protección durante el entrenamiento y la competencia.",
