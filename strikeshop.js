@@ -178,12 +178,30 @@ const inventarioStrikeshop = [
         category: "Polerones"
     },
     {
+        id: 24,
+        name: "Polerón Polo",
+        price: 28000,
+        image_url: "assets/img/tienda/poleronpolo.jpg",
+        galeria: ["assets/img/tienda/poleronpolo.jpg"],
+        description: "Polerón polo oficial de Strikebox, perfecto para lucir tu pasión por las artes marciales.",
+        category: "Polerones"
+    },
+    {
         id: 19,
         name: "Protector Genital Masculino",
         price: 13000,
         image_url: "assets/img/tienda/genital.jpeg",
         galeria: ["assets/img/tienda/genital.jpeg"],
         description: "Protector genital masculino de alta calidad, diseñado para brindar máxima protección durante el entrenamiento y la competencia.",
+        category: "Accesorios"
+    },
+    {
+        id: 26,
+        name: "Protector de Pechos",
+        price: 23000,
+        image_url: "assets/img/tienda/protectorpecho.jpg",
+        galeria: ["assets/img/tienda/protectorpecho.jpg"],
+        description: "Protector de pechos de alta calidad, diseñado para brindar máxima protección durante el entrenamiento y la competencia.",
         category: "Accesorios"
     },
     {
@@ -202,6 +220,15 @@ const inventarioStrikeshop = [
         image_url: "assets/img/tienda/vendas.jpeg",
         galeria: ["assets/img/tienda/vendas.jpeg"],
         description: "Vendas lisas o con diseño, ideales para el entrenamiento y la competencia.",
+        category: "Accesorios"
+    },
+    {
+        id: 25,
+        name: "Protector Bucal simple",
+        price: 6000,
+        image_url: "assets/img/tienda/bucal.jpeg",
+        galeria: ["assets/img/tienda/bucal.jpeg"],
+        description: "Protector bucal simple, para protegerte durante el entrenamiento.",
         category: "Accesorios"
     },
     {
