@@ -226,8 +226,8 @@ const inventarioStrikeshop = [
         id: 25,
         name: "Protector Bucal simple",
         price: 6000,
-        image_url: "assets/img/tienda/bucal.jpeg",
-        galeria: ["assets/img/tienda/bucal.jpeg"],
+        image_url: "assets/img/tienda/bucalsimple.jpg",
+        galeria: ["assets/img/tienda/bucalsimple.jpg"],
         description: "Protector bucal simple, para protegerte durante el entrenamiento.",
         category: "Accesorios"
     },
